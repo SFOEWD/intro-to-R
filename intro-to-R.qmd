@@ -1,0 +1,1228 @@
+---
+title: "Introduction to R"
+subtitle: "<br>\nData Wrangling and Exploring Data with R"
+author: "Data Academy"
+execute:
+  echo: true
+format: 
+  revealjs:
+    code-block-background: true
+    theme: [default, custom.scss]
+    smaller: true
+---
+
+## Course Outline
+
+:::: {.columns} 
+
+::: {.column width="50%" .incremental}
+
+Overview
+
+* RStudio
+* R Projects
+* Variables
+* Types and Data Structures
+* Operators
+* Functions
+* Packages
+* Reading/Writing Data
+:::
+
+::: {.column width="50%" .incremental}
+
+Exploratory Data Analysis
+
+* Data Frames
+* The tidyverse
+* Subsetting, Sorting, and Summarizing
+* Joins
+* Piping
+* Pivoting
+* Plotting
+* Script Structure
+
+:::
+
+::::
+
+## Course Goals
+
+:::: {.columns}
+
+::: {.column width="40%" .incremental}
+
+* Navigate RStudio
+* Manipulate Data Frames
+* Conduct Basic EDA
+* Make a Reprex
+
+:::
+
+::: {.column width="60%" height="75%" .incremental}
+
+![](img/first_i_was_like.png){.absolute height="600"}
+
+:::
+
+::::
+
+
+## Why use R?
+
+:::: {.columns}
+
+::: {.column width="40%" .incremental}
+
+* It's powerful
+* It promotes reproducibility
+* It's popular around the city
+* It works well with other languages
+* There are packages for almost everything
+* If there isn't a package for something, it's fairly easy to make it yourself!
+
+:::
+
+::: {.column width="60%" .incremental}
+
+![](img/first_i_was_like.png){.absolute height="600"}
+
+:::
+
+:::
+
+## Gallery
+
+* "All Aboard! Exploring the Amtrak Passenger Rail System" [(table)](https://joshfangmeier.quarto.pub/table-contest-2022/#sec-table) [(code)](https://github.com/jfangmeier/table-contest-2022/blob/main/R/amtrak-table-standalone.qmd)
+
+* "Locating neighborhood diversity in the American Metropolis" [(app)](https://walkerke.shinyapps.io/neighborhood_diversity/) [(code)](https://github.com/walkerke/neighborhood_diversity/blob/master/neighborhood_diversity.Rmd)
+
+* [ggplot2](https://ggplot2.tidyverse.org/) and extensions
+
+```{r echo=FALSE, eval=FALSE}
+library(gapminder)
+library(ggplot2)
+library(gganimate)
+
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+```
+
+
+## Your First R Project
+
+(Live)
+
+* [Intro to R GitHub Repo]()
+
+## Variable Assignment
+
+Variable names can't include spaces and must start with a letter. 
+
+```{r}
+a <- 5
+a = 5
+a
+b <- 4
+b
+c <- a + b
+c
+test_scores <- c(82, 89, 92, 75, 74, 99)
+test_scores
+
+```
+
+::: {.callout-tip}
+`c()` is a function that 'concatenates' a vector. More on vectors in a bit!
+
+:::
+
+## Functions
+
+Functions are pre-defined code that accomplish one specific task. A function has two components: (1) the name of the function; and (2) the input or 'arguments'. The value returned is called the 'output.' Running or executing a function is called 'calling' a function. 
+
+```{r}
+mean(x = c(3, 7, 11, 12, 14, 15))
+```
+
+* A function can have any number of arguments. Some are required, but some are optional. 
+* If an argument is not explicitly specified, a default will be used.
+
+```{r}
+mean(c(3, 7, 11, 12, 14, 15, NA))
+mean(c(3, 7, 11, 12, 14, 15, NA), na.rm = TRUE)
+```
+
+* A function will throw an error if a required argument is not used.
+
+```{r error=TRUE}
+mean(na.rm = TRUE)
+```
+
+
+## Types
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* numbers
+* characters
+* logical
+* dates
+* factors
+
+:::
+
+::: {.column width="75%"}
+
+:::
+
+:::
+
+## Types - numbers
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* [numbers]{style="color:firebrick;"}
+* characters
+* logical
+* dates
+* factors
+
+:::
+
+::: {.column width="75%" .incremental}
+
+R has three numeric types: numeric (or floating point), integer, and complex.
+
+```{r}
+n <- 2.5
+class(n)
+
+int <- as.integer(2)
+class(int)
+
+class(-1 + 3i)
+```
+
+:::
+
+:::
+
+## Types - characters
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* numbers
+* [characters]{style="color:firebrick;"}
+* logical
+* dates
+* factors
+
+:::
+
+::: {.column width="75%" .incremental}
+
+Characters are for storing text or strings and can be entered using either double or single quotes.
+
+```{r error=TRUE}
+greetings <- "hello world"
+
+class(greetings)
+```
+
+'Escape' quotes within a character string with backslashes.
+
+```{r}
+my_enthusiasm <- 'I\'m loving R!'
+print(my_enthusiasm)
+```
+
+
+:::
+
+:::
+
+## Types - boolean/logical
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* numbers
+* characters
+* [logical]{style="color:firebrick;"}
+* dates
+* factors
+
+:::
+
+::: {.column width="75%" .incremental}
+
+Logical types have three possible values: TRUE, FALSE, and NA.
+
+```{r error=TRUE}
+class(TRUE)
+cond <- 1 > 2
+cond
+class(cond)
+```
+
+:::
+
+:::
+
+## Types - dates
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* numbers
+* characters
+* logical
+* [dates]{style="color:firebrick;"}
+* factors
+
+:::
+
+::: {.column width="75%"}
+
+Objects of the date class are used for dates.
+
+```{r error=TRUE}
+d <- as.Date("2024/09/07")
+class(d)
+as.Date("09/07/2024")
+as.Date("09/07/2024", format = "%m/%d/%Y")
+```
+
+```{r echo=FALSE}
+knitr::kable(data.frame(c("\\%Y", "\\%y", "\\%m", "\\%d"), c("4-digit year (1982)", "2-digit year (82)", "2-digit month (01)", "2-digit day of the month (13)")), col.names = NULL)
+```
+
+:::
+
+:::
+
+## Types - factors
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* numbers
+* characters
+* logical
+* dates
+* [factors]{style="color:firebrick;"}
+
+:::
+
+::: {.column width="75%"}
+
+Factors are used for categorical, 'ordinal' variables. 
+
+
+```{r class}
+m <- c("Dec", "Apr", "Jan", "Mar")
+sort(m)
+
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+
+m <- factor(m, levels = month_levels)
+sort(m)
+```
+
+:::
+
+:::
+
+## Structures - vectors
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* [vector]{style="color:firebrick;"}
+* list
+* matrix
+* data frame
+
+:::
+
+::: {.column width="75%"}
+
+A vector is a one dimensional collection of elements of the same class.  
+
+```{r error=TRUE}
+temps <- c(94, 83, 79, 55, 65)
+temps
+
+groceries <- c("apples", "carrots", "ice cream", "hot sauce")
+groceries
+
+conds <- c(TRUE, TRUE, FALSE, FALSE)
+conds
+```
+
+::: {.callout-important}
+Be wary of R's implicit coercion
+:::
+
+```{r}
+c(1, 2, TRUE)
+c("A", "B", TRUE)
+```
+
+:::
+
+:::
+
+## Subsetting vectors
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* [vector]{style="color:firebrick;"}
+* list
+* matrix
+* data frame
+
+:::
+
+::: {.column width="75%"}
+
+Elements can be accessed using 'subscripts' or 'indices', which are specified using brackets:
+
+```{r}
+groceries <- c("apples", "carrots", "ice cream", "hot sauce")
+groceries[2]
+groceries[-2]
+groceries[c(1, 2, 3)]
+groceries[1:3]
+
+```
+
+
+:::
+
+:::
+
+## Structures - lists
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* vector
+* [list]{style="color:firebrick;"}
+* matrix
+* data frame
+
+:::
+
+::: {.column width="75%"}
+
+A list can include elements of any type and of any dimension.
+
+```{r error=TRUE}
+l1 <- list("A", 1, TRUE)
+l1
+l2 <- list(c(1, 2, 3, 4, 5), c("a", "b", "c"), c(TRUE, TRUE))
+l2
+```
+
+
+:::
+
+:::
+
+## Structures - matrices
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* vector
+* list
+* [matrix]{style="color:firebrick;"}
+* data frame
+
+:::
+
+::: {.column width="75%"}
+
+A matrix is a two-dimensional collection of elements of the same type.
+
+```{r error=TRUE}
+m1 <- matrix(
+  c(43, 43, 65, 76, 87, 34),
+  nrow = 3,
+  ncol = 2
+)
+m1
+
+m2 <- matrix(
+  c(TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE),
+  nrow = 2,
+  ncol = 4
+)
+m2
+```
+
+
+:::
+
+:::
+
+## Structures - data frames
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* vector
+* list
+* matrix
+* [data frame]{style="color:firebrick;"}
+
+:::
+
+::: {.column width="75%"}
+
+A data frame is a tabular object made of equal length vectors. 
+
+```{r error=TRUE}
+df <- data.frame(
+  x = c(1, 2, 3),
+  y = c(5, 6, 7),
+  z = c("a", "b", "c")
+)
+df
+```
+
+* A 'tibble' is an improved type of data frame.
+
+```{r}
+library(tidyverse)
+df <- tibble(
+  x = c(1, 2, 3),
+  y = c(5, 6, 7),
+  z = c("a", "b", "c"),
+  f = c(TRUE, FALSE, TRUE)
+)
+df
+```
+
+
+:::
+
+:::
+
+## Subsetting data frames
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Types
+
+* vector
+* list
+* matrix
+* [data frame]{style="color:firebrick;"}
+
+:::
+
+::: {.column width="75%"}
+
+Use `$` to access columns (vectors) within a data frame.
+
+```{r error=TRUE}
+df$x
+sum(df$x)
+df$z[1]
+df$z[c(1, 3)]
+```
+
+Subscripts/indices for data frames are pairs specifying the row and column numbers.
+
+```{r}
+df[1,1]
+df[2, 1:3]
+```
+
+
+:::
+
+:::
+
+## Operators
+
+```{r echo=FALSE}
+gt::gt(tribble(
+  ~Category, ~Operator,                               ~Operation, ~Example, 
+  "Artithmetic",      "+",                          "Addition",  "x + y", 
+  "Artithmetic",      "-",                       "Subtraction",  "x - y", 
+  "Artithmetic",      "*",                    "Multiplication",  "x * y", 
+  "Artithmetic",      "/",                          "Division",  "x / y", 
+  "Artithmetic",      "^",                          "Exponent",  "x ^ y", 
+  "Artithmetic",     "%%", "Modulus (Remainder from division)", "x %% y", 
+  "Comparison",     "==",                    "Equal", "x == y",  
+  "Comparison",     "!=",                "Not equal", "x != y",  
+  "Comparison",      ">",             "Greater than",  "x > y",  
+  "Comparison",      "<",                "Less than",  "x < y",  
+  "Comparison",     ">=", "Greater than or equal to", "x >= y",  
+  "Comparison",     "<=",    "Less than or equal to", "x <= y",
+  "Logical",         "&",   "AND",                   "x & y",
+  "Logical",         "|",   "OR",                   "x | y",
+  "Logical",          "!",   "NOT",                 "!(x > y)",
+  "Logical",         "%in%",  "IN",                  "x %in% y",
+  "Sequence",        ":",     "Sequence",            "1:10"
+  )) %>% gtExtras::gt_theme_538() %>% 
+  gt::tab_options(table.background.color = "#d7e3f5")
+
+
+```
+
+## Vectorization
+
+Many of R's operations are 'vectorized', meaning a given operation will operate on each element of a vector without explicit specification.
+
+```{r}
+x <- 1:5
+x + 1
+x < 4
+x == 4
+
+x[x < 4]
+
+temps_f <- c(94, 83, 79, 71, 72)
+temps_c <- (temps_f - 32)*5/9
+temps_c
+```
+
+
+## Practice Using Functions!
+
+```{r}
+temps <- c(71, 91, 77, 81, 91, 91, 68, 66, 88, 82, 85, 76, 83, 91, 81, 77, 89, 68)
+min(temps)
+max(temps)
+median(temps)
+range(temps)
+sd(temps)
+sum(temps)
+length(temps)
+sum(temps > 90)
+mean(temps > 90)
+```
+
+## Packages
+
+Packages extend R's functionality beyond the functions available in the 'base' version. 
+
+* Before you can use the functions from a package, the package must first be **installed.** 
+
+* After a package has been installed, it can then be **loaded** into your session.
+
+```{r eval=FALSE }
+install.packages("dplyr") # you only need to install the package once
+library(dplyr) # but you need to load the package each session 
+```
+
+* The [Comprehensive R Archive Network](https://cran.r-project.org/) serves as a repository for most packages (21,1145 as of August 2024).
+
+![](img/rpackages.png)
+
+## The Tidyverse
+
+"The tidyverse is an collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures."
+
+![](img/tidyverse.png)
+
+## Key Tidyverse Packages
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+* **readr** - functions for reading rectangular data (like csv, tsv, and fwf).
+* **readxl** - functions to read data from .xls and .xlsx files.
+* **dplyr** - a grammar of data manipulation that solve the most common data manipulation challenges.
+* **tidyr** - tools for pivoting, cleaning, and 'tidying' data.
+* **ggplot2** - a system for creating graphics, based on The Grammar of Graphics.
+* **purrr** - tools for working with functions and vectors.
+* **lubridate** - functions for working with dates.
+* **stringr** - functions for working with strings.
+* **forcats** - functions for working with factors.
+
+:::
+
+::: {.column width="40%"}
+
+![](img/tidyverse-hex.png)
+
+:::
+
+:::
+
+## Reading Data
+
+```{r eval=FALSE}
+library(readr)
+penguins <- read_csv("data/penguins.csv")
+```
+
+```
+Rows: 344 Columns: 8                                                                                                                                                     
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): species, island, sex
+dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+```{r eval=FALSE}
+library(readxl)
+penguins <- read_xlsx("data/penguins.xlsx")
+penguins <- read_rds("data/penguins.rds")
+```
+
+
+## Reading from DataSF
+
+* Source: [Traffic Crashes Resulting in Fatality](https://data.sfgov.org/Public-Safety/Traffic-Crashes-Resulting-in-Fatality/dau3-4s8f/about_data)
+
+```{r}
+library(RSocrata)
+crashes <- read.socrata("https://data.sfgov.org/resource/dau3-4s8f.csv")
+# crashes <- read_csv("https://data.sfgov.org/resource/dau3-4s8f.csv")
+glimpse(crashes)
+
+
+```
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+options(pillar.print_max = 3)
+options(pillar.print_min = 3)
+```
+
+## select()
+
+
+```{r}
+library(dplyr)
+select(penguins, species, island, sex, body_mass_g)
+
+select(penguins, 1:4)
+
+select(penguins, bill_length_mm:body_mass_g)
+```
+
+## arrange()
+
+```{r}
+arrange(penguins, bill_length_mm)
+
+arrange(penguins, species)
+
+arrange(penguins, desc(bill_length_mm))
+```
+
+## rename()
+
+```{r}
+rename(penguins, Sex = sex)
+
+rename(penguins, genus = species, isle = island)
+```
+
+
+## filter()
+
+```{r}
+filter(penguins, sex == "female")
+
+filter(penguins, body_mass_g > 4800)
+
+filter(penguins, sex == "female", body_mass_g >= 4800)
+```
+
+
+## filter()
+
+```{r}
+filter(penguins, is.na(bill_length_mm))
+filter(penguins, !is.na(bill_length_mm))
+```
+
+## filter()
+
+```{r}
+filter(penguins, island == "Biscoe" | island == "Dream")
+filter(penguins, island %in% c("Biscoe", "Dream"))
+filter(penguins, !island %in% c("Biscoe", "Dream"))
+```
+
+## filter() with string helpers
+
+```{r}
+library(stringr)
+
+filter(penguins, str_detect(island, "ger"))
+
+filter(penguins, str_length(species) == 6)
+```
+
+
+## mutate()
+
+```{r}
+mutate(penguins, body_mass_lb = body_mass_g/453.6)
+
+usa_penguins <- mutate(
+  penguins, 
+  body_mass_lb = body_mass_g/453.6, 
+  flipper_length_in = flipper_length_mm/25.4
+  )
+
+select(usa_penguins, species, body_mass_lb, flipper_length_in)
+```
+
+## mutate() with helpers
+
+* If you need to specify only one condition, use `if_else()`. Otherwise, use `case_when()`.
+
+```{r}
+mutate(penguins, body_mass_g = if_else(island == "Biscoe", body_mass_g - 50, body_mass_g))
+
+new_measurements <- mutate(penguins, new_body_mass_g = case_when(
+  island == "Biscoe" ~ body_mass_g - 50,
+  island == "Dream" ~ body_mass_g - 75,
+  island == "Torgersen" ~ body_mass_g - 100
+  )
+)
+select(new_measurements, island, body_mass_g, new_body_mass_g)
+```
+
+## mutate() with string helpers
+
+```{r}
+penguins_with_ids <- mutate(penguins, id = paste(island, species, sex, year, sep = "-"))
+select(penguins_with_ids, island, species, sex, year, id)
+
+mutate(penguins, sex = str_sub(sex, start = 1, end = 1))
+
+mutate(penguins, sex = str_to_title(sex))
+```
+
+
+## count()
+
+```{r echo=FALSE}
+options(pillar.print_max = 8)
+options(pillar.print_min = 8)
+```
+
+
+```{r}
+count(penguins, sex)
+
+count(penguins, species)
+
+count(penguins, sex, species, sort = TRUE)
+```
+
+## summarize()
+
+```{r}
+summarize(penguins, mean_flipper_length = mean(flipper_length_mm))
+
+summarize(
+  penguins, 
+  mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE),
+  mean_body_mass = mean(body_mass_g, na.rm = TRUE),
+  mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
+  )
+```
+
+## group_by()
+
+```{r}
+penguins_grouped_by_sex <- group_by(penguins, sex)
+summarize(penguins_grouped_by_sex, mean_body_mass = mean(body_mass_g, na.rm = TRUE))
+
+penguins_grouped_by_sex_and_species <- group_by(penguins, sex, species)
+summarize(penguins_grouped_by_sex_and_species, mean_body_mass = mean(body_mass_g, na.rm = TRUE))
+
+summarize(penguins, mean_body_mass = mean(body_mass_g, na.rm = TRUE), .by = sex)
+```
+
+## The Pipe
+
+We typically want to run numerous operations on a data frame, and saving the intermediate outputs as separate variables is tedious. The 'pipe' operator (`%>%` or `|>`), passes the output from one function directly into another. 
+
+* Windows: `Ctrl + M`; Mac: `Cmd + M`
+
+```{r}
+penguins %>% 
+  filter(body_mass_g > 4000) %>% 
+  group_by(sex) %>% 
+  summarize(mean_body_mass = mean(body_mass_g, na.rm = TRUE)) %>% 
+  arrange(desc(mean_body_mass))
+```
+
+```{r}
+penguins %>% count(species)
+```
+
+## Practice using tidyverse functions!
+
+Source: [Air Traffic Passenger Statistics](https://data.sfgov.org/Transportation/Air-Traffic-Passenger-Statistics/rkru-6vcg/about_data)
+
+```{r eval=FALSE}
+air_traffic <- read.socrata("https://data.sfgov.org/resource/rkru-6vcg.csv")
+
+# How many passengers deplaned from airlines with 'China' in their name?
+air_traffic %>% 
+  filter(
+    str_detect(operating_airline, "China"),
+    activity_type_code == "Deplaned"
+    ) %>% 
+  group_by(operating_airline) %>% 
+  summarize(passengers = sum(passenger_count)) %>% 
+  arrange(desc(passengers))
+
+# How many flights for each operating airline in 2020?
+air_traffic %>% 
+  filter(
+    activity_period_start_date >= as.Date("2020-01-01") & 
+      activity_period_start_date <= as.Date("2020-12-31")
+    ) %>% 
+  count(operating_airline, sort = TRUE, name = "flights") %>% 
+  head()
+```
+
+## left_join()
+
+If a row in 'x' or the left-hand side matches a row in 'y' or the right-hand side, the columns from the y table are joined to the x table.
+
+```{r}
+df1 <- tibble(x = 1:3)
+df2 <- tibble(x = c(1, 2), y = c("first", "second"))
+left_join(df1, df2, by = "x")
+df1 %>% left_join(df2, join_by(x))
+```
+
+
+## left_join() (multiple matches)
+
+If a row in 'x' or the left-hand side has **multiple** matches in 'y' or the right-hand side, **all** the matching rows in y will be joined to x. 
+
+
+```{r}
+df1 <- tibble(id = 1:3)
+df2 <- tibble(code = c(1, 1, 2), y = c("first", "second", "third"))
+df1 %>% left_join(df2, join_by(id == code))
+```
+
+## inner_join()
+
+```{r}
+df1 <- tibble(x = 1:3)
+df2 <- tibble(x = c(1, 5), y = c("first", "fifth"))
+df1 %>% inner_join(df2, by = join_by(x))
+```
+
+
+![](img/inner-join.gif)
+
+
+## bind_rows()
+
+```{r}
+penguins_2007 <- penguins %>% filter(year == 2007)
+penguins_2008 <- penguins %>% filter(year == 2008)
+nrow(penguins_2007)
+nrow(penguins_2008)
+
+all_penguins <- bind_rows(penguins_2007, penguins_2008)
+all_penguins
+```
+
+
+## Practice joining data!
+
+```{r eval=FALSE}
+flights <- read_rds("data/flights.rds")
+airlines <- read_rds("data/airlines.rds")
+airports <- read_rds("data/planes.rds")
+
+left_join(flights, airlines, by = join_by(carrier))
+
+flights %>% 
+  left_join(airports, join_by(dest == faa)) %>% 
+  select(year, month, day, origin, dest, tzone)
+
+flights %>% 
+  inner_join(planes, join_by(tailnum)) %>% 
+  select(flight, month, day, type, engine)
+```
+
+## pivoting
+
+Reshape your data into something *longer* (increasing number of rows and decreasing the number of columns) or reshape your data into something *wider* (increasing the number of columns and decreasing the number of rows).
+
+![](img/tidyr-pivoting.gif)
+
+
+## pivot_longer()
+
+```{r}
+glimpse(relig_income)
+relig_income %>% 
+  pivot_longer(
+    cols = 2:11,
+    names_to = "income",
+    values_to = "count"
+  )
+```
+
+
+## pivot_wider()
+
+```{r}
+penguins %>% 
+  count(island, species) %>% 
+  pivot_wider(
+    names_from = species,
+    values_from = n
+  )
+```
+
+
+## Writing Data
+
+```{r eval=FALSE}
+adelie_males_on_torgersen_in_2007 <- penguins %>% 
+  filter(
+    species == "Adelie",
+    sex == "male",
+    island == "Torgersen",
+    year == "2007"
+  ) %>% 
+  select(bill_length_mm:body_mass_g)
+
+write_csv(adelie_males_on_torgersen_in_2007, "adelie_males_on_torgersen_in_2007.csv")
+write_rds(adelie_males_on_torgersen_in_2007, "adelie_males_on_torgersen_in_2007.rds")
+
+library(writexl)
+write_xlsx(adelie_males_on_torgersen_in_2007, "adelie_males_on_torgersen_in_2007.xlsx")
+
+```
+
+## ggplot2
+
+```{r dev = "png", dev.args=list(bg="transparent")}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_jitter(width = 0.1, alpha = 0.2) +
+  labs(x = "Species", y = "Body Mass (grams)", title = "Penguin Body Mass by Species") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+
+## gt
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r eval=FALSE}
+library(gt)
+
+penguins %>% 
+  group_by(island, species, sex) %>% 
+  summarize(
+    mean_body_mass = mean(body_mass_g, na.rm = TRUE)
+    ) %>% 
+  ungroup() %>% 
+  drop_na(sex) %>% 
+  pivot_wider(
+    names_from = sex, 
+    values_from = mean_body_mass
+    ) %>% 
+  gt(
+    groupname_col = "Island", 
+    rowname_col = "Species"
+    ) %>% 
+  tab_style(
+    style = list(cell_text(align = "right")),
+    locations = cells_stub(rows = TRUE)
+  ) %>% 
+  tab_header(
+    title = "Penguin Body Mass",
+    subtitle = "Adult penguins near Palmer Station"
+  )
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r echo=FALSE}
+library(gt)
+
+penguins %>% 
+  group_by(island, species, sex) %>% 
+  summarize(mean_body_mass = mean(body_mass_g, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  drop_na(sex) %>% 
+  pivot_wider(
+    names_from = sex,
+    values_from = mean_body_mass
+  ) %>% 
+  rename(
+    Island = island,
+    Species = species,
+    Female = female,
+    Male = male
+  ) %>% 
+  gt(groupname_col = "Island", rowname_col = "Species") %>% 
+  tab_style(
+    style = list(
+      cell_text(align = "right")
+    ),
+    locations = cells_stub(rows = TRUE)
+  ) %>% 
+  tab_header(
+    title = "Penguin Body Mass",
+    subtitle = "Adult foraging penguins near Palmer Station"
+  ) %>% 
+  tab_options(table.background.color = "#d7e3f5")
+```
+
+:::
+
+:::
+
+
+
+## Script Structure and Basic EDA
+
+(Live)
+
+* [EDA Script]()
+
+## Where to get Help
+
+* Stackoverflow
+
+* Posit Community
+
+* Twitter/X/Mastadon/BlueSky
+
+* CCSF Teams Channel
+
+![](img/debugging.png)
+
+## How to get Help (reprex)
+
+* [Reprex Do's and Don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)
+
+![](img/reprex.png)
+
+
+## What should I learn next?
+
+* dplyr selection helpers:
+  * `starts_with()`/`ends_with()`
+  * `contains()`/`matches()`
+  * `first_col()`/`last_col()`
+  * `everything()`
+  * `across()`
+  * `where()`
+
+* Reports and dashboards: [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
+
+* Everything about ggplot2: [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+
+* Everything about gt: [Introduction to Creating gt tables](https://gt.rstudio.com/articles/gt.html)
+
+* Writing good functions: [Chapter 19, 'Functions', in *R for Data Science*](https://r4ds.had.co.nz/functions.html)
+
+* Working with databases: [Chapter 21, 'Databases', in *R for Data Science*](https://r4ds.hadley.nz/databases)
+
+* Spatial Stuff: [*Geocomputation in R*](https://r.geocompx.org/intro)
+
+* Watch and learn from a pro: [David Robinson's Tidy Tuesday screencasts](https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8)
+
+## Other Cool R Things
+
+* Interactive JavaScript visualizations in R: [htmlwidgets gallery](https://gallery.htmlwidgets.org/) 
+
+* Interactive web applications: [Welcome to Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html)
+
+* Package development: [R packages](https://r-pkgs.org/)
+
+* Automating data pipelines: [The targets user manual](https://books.ropensci.org/targets/) 
+
+## Lab
+
+## 
+
+fin
+
+
+
+
+
+
+

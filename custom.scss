@@ -1,0 +1,45 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=Roboto+Mono&display=swap');
+
+$font-family-sans-serif: 'Rubik', sans-serif !default;
+
+$link-color: #42affa;
+
+$body-bg: #d7e3f5;
+$body-color: #404041 !default;
+$link-color: #495ED4 !default;
+$code-color: #72994E !default;
+$code-block-bg: #f0f0f5 !default;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+h1.title {
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 52px;
+  letter-spacing: -1px;
+}
+
+h1, h2, h3, h4, body {
+  font-family: $font-family-sans-serif;
+  font-weight: 600
+}
+
+h2 {
+  border-bottom: 4px solid #404041
+}
+
+ul, li {
+  font-size: 0.9em;
+}
+
+a {
+  color: $link-color;
+}
+
