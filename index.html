@@ -423,8 +423,9 @@ Data Academy
 <li class="fragment">Data Frames</li>
 <li class="fragment">The tidyverse</li>
 <li class="fragment">Subsetting, Sorting, and Summarizing</li>
-<li class="fragment">Joins</li>
+<li class="fragment">Manipulating</li>
 <li class="fragment">Piping</li>
+<li class="fragment">Joining</li>
 <li class="fragment">Pivoting</li>
 <li class="fragment">Plotting</li>
 <li class="fragment">Script Structure</li>
@@ -438,9 +439,11 @@ Data Academy
 <div class="column" style="width:40%;">
 <ul>
 <li class="fragment">Navigate RStudio</li>
-<li class="fragment">Manipulate Data Frames</li>
-<li class="fragment">Conduct Basic EDA</li>
-<li class="fragment">Make a Reprex</li>
+<li class="fragment">Pledge to use R Projects</li>
+<li class="fragment">Understand R’s types and structures</li>
+<li class="fragment">Manipulate data frames</li>
+<li class="fragment">Conduct basic EDA</li>
+<li class="fragment">Know where and how to get help</li>
 </ul>
 </div><div class="column" height="75%" style="width:60%;">
 <p><img data-src="img/first_i_was_like.png" class="absolute" style="height: 600px; "></p>
@@ -452,12 +455,13 @@ Data Academy
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li class="fragment">It’s powerful</li>
-<li class="fragment">It promotes reproducibility</li>
-<li class="fragment">It’s popular around the city</li>
-<li class="fragment">It works well with other languages</li>
-<li class="fragment">There are packages for almost everything</li>
+<li class="fragment">It’s powerful.</li>
+<li class="fragment">It promotes reproducibility.</li>
+<li class="fragment">It’s popular around the city.</li>
+<li class="fragment">It works well with other languages.</li>
+<li class="fragment">There are packages for almost everything.</li>
 <li class="fragment">If there isn’t a package for something, it’s fairly easy to make it yourself!</li>
+<li class="fragment">It’s cooler than Python.</li>
 </ul>
 </div><div class="column" style="width:60%;">
 <p><img data-src="img/first_i_was_like.png" class="absolute" style="height: 600px; "></p>
@@ -471,12 +475,17 @@ Data Academy
 <li><p>“Locating neighborhood diversity in the American Metropolis” <a href="https://walkerke.shinyapps.io/neighborhood_diversity/">(app)</a> <a href="https://github.com/walkerke/neighborhood_diversity/blob/master/neighborhood_diversity.Rmd">(code)</a></p></li>
 <li><p><a href="https://ggplot2.tidyverse.org/">ggplot2</a> and extensions</p></li>
 </ul>
-</section>
+
+<img data-src="intro-to-R_files/figure-revealjs/unnamed-chunk-1-1.gif" class="r-stretch"></section>
 <section id="your-first-r-project" class="slide level2">
 <h2>Your First R Project</h2>
 <p>(Live)</p>
+<p><a href="https://github.com/SFOEWD/data-academy-intro-to-r">Intro to R GitHub Repo</a></p>
+<p>Use R Projects because:</p>
 <ul>
-<li><a href="">Intro to R GitHub Repo</a></li>
+<li>They promote sensible file/directory structure.</li>
+<li>They’re easy to share.</li>
+<li>Manually fiddling with your working directory is bad practice.</li>
 </ul>
 </section>
 <section id="variable-assignment" class="slide level2">
@@ -944,7 +953,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <li><span style="color:firebrick;">data frame</span></li>
 </ul>
 </div><div class="column" style="width:75%;">
-<p>A data frame is a tabular object made of equal length vectors.</p>
+<p>A data frame is a table made of equal length vectors.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb69-2"><a href="#cb69-2"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
@@ -966,18 +975,17 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb71-2"><a href="#cb71-2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb71-3"><a href="#cb71-3"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb71-4"><a href="#cb71-4"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>),</span>
-<span id="cb71-5"><a href="#cb71-5"></a>  <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>),</span>
-<span id="cb71-6"><a href="#cb71-6"></a>  <span class="at">f =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb71-7"><a href="#cb71-7"></a>)</span>
-<span id="cb71-8"><a href="#cb71-8"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb71-4"><a href="#cb71-4"></a>  <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>),</span>
+<span id="cb71-5"><a href="#cb71-5"></a>  <span class="at">f =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb71-6"><a href="#cb71-6"></a>)</span>
+<span id="cb71-7"><a href="#cb71-7"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 4
-      x     y z     f    
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
-1     1     5 a     TRUE 
-2     2     6 b     FALSE
-3     3     7 c     TRUE </code></pre>
+<pre><code># A tibble: 3 × 3
+      x z     f    
+  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
+1     1 a     TRUE 
+2     2 b     FALSE
+3     3 c     TRUE </code></pre>
 </div>
 </div>
 </div>
@@ -1026,9 +1034,9 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>df[<span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
-      x     y z    
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
-1     2     6 b    </code></pre>
+      x z     f    
+  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
+1     2 b     FALSE</code></pre>
 </div>
 </div>
 </div>
@@ -1039,24 +1047,24 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="hjbeohkvnb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tiazytqwjl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#hjbeohkvnb table {
+#tiazytqwjl table {
   font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hjbeohkvnb thead, #hjbeohkvnb tbody, #hjbeohkvnb tfoot, #hjbeohkvnb tr, #hjbeohkvnb td, #hjbeohkvnb th {
+#tiazytqwjl thead, #tiazytqwjl tbody, #tiazytqwjl tfoot, #tiazytqwjl tr, #tiazytqwjl td, #tiazytqwjl th {
   border-style: none;
 }
 
-#hjbeohkvnb p {
+#tiazytqwjl p {
   margin: 0;
   padding: 0;
 }
 
-#hjbeohkvnb .gt_table {
+#tiazytqwjl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1082,12 +1090,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_caption {
+#tiazytqwjl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hjbeohkvnb .gt_title {
+#tiazytqwjl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1099,7 +1107,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-width: 0;
 }
 
-#hjbeohkvnb .gt_subtitle {
+#tiazytqwjl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1111,7 +1119,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-top-width: 0;
 }
 
-#hjbeohkvnb .gt_heading {
+#tiazytqwjl .gt_heading {
   background-color: #D7E3F5;
   text-align: left;
   border-bottom-color: #D7E3F5;
@@ -1123,13 +1131,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_bottom_border {
+#tiazytqwjl .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_col_headings {
+#tiazytqwjl .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1144,7 +1152,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_col_heading {
+#tiazytqwjl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1164,7 +1172,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   overflow-x: hidden;
 }
 
-#hjbeohkvnb .gt_column_spanner_outer {
+#tiazytqwjl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1176,15 +1184,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 4px;
 }
 
-#hjbeohkvnb .gt_column_spanner_outer:first-child {
+#tiazytqwjl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hjbeohkvnb .gt_column_spanner_outer:last-child {
+#tiazytqwjl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hjbeohkvnb .gt_column_spanner {
+#tiazytqwjl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -1196,11 +1204,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   width: 100%;
 }
 
-#hjbeohkvnb .gt_spanner_row {
+#tiazytqwjl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hjbeohkvnb .gt_group_heading {
+#tiazytqwjl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1226,7 +1234,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   text-align: left;
 }
 
-#hjbeohkvnb .gt_empty_group_heading {
+#tiazytqwjl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #D7E3F5;
@@ -1241,15 +1249,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   vertical-align: middle;
 }
 
-#hjbeohkvnb .gt_from_md > :first-child {
+#tiazytqwjl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hjbeohkvnb .gt_from_md > :last-child {
+#tiazytqwjl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hjbeohkvnb .gt_row {
+#tiazytqwjl .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -1268,7 +1276,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   overflow-x: hidden;
 }
 
-#hjbeohkvnb .gt_stub {
+#tiazytqwjl .gt_stub {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 80%;
@@ -1281,7 +1289,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#hjbeohkvnb .gt_stub_row_group {
+#tiazytqwjl .gt_stub_row_group {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -1295,15 +1303,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   vertical-align: top;
 }
 
-#hjbeohkvnb .gt_row_group_first td {
+#tiazytqwjl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hjbeohkvnb .gt_row_group_first th {
+#tiazytqwjl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hjbeohkvnb .gt_summary_row {
+#tiazytqwjl .gt_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -1313,16 +1321,16 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#hjbeohkvnb .gt_first_summary_row {
+#tiazytqwjl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_first_summary_row.thick {
+#tiazytqwjl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hjbeohkvnb .gt_last_summary_row {
+#tiazytqwjl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1332,7 +1340,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_grand_summary_row {
+#tiazytqwjl .gt_grand_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -1342,7 +1350,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#hjbeohkvnb .gt_first_grand_summary_row {
+#tiazytqwjl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1352,7 +1360,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_last_grand_summary_row_top {
+#tiazytqwjl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1362,11 +1370,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_striped {
+#tiazytqwjl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hjbeohkvnb .gt_table_body {
+#tiazytqwjl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1375,7 +1383,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_footnotes {
+#tiazytqwjl .gt_footnotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -1389,7 +1397,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_footnote {
+#tiazytqwjl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1398,7 +1406,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#hjbeohkvnb .gt_sourcenotes {
+#tiazytqwjl .gt_sourcenotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -1412,7 +1420,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hjbeohkvnb .gt_sourcenote {
+#tiazytqwjl .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1420,64 +1428,73 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#hjbeohkvnb .gt_left {
+#tiazytqwjl .gt_left {
   text-align: left;
 }
 
-#hjbeohkvnb .gt_center {
+#tiazytqwjl .gt_center {
   text-align: center;
 }
 
-#hjbeohkvnb .gt_right {
+#tiazytqwjl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hjbeohkvnb .gt_font_normal {
+#tiazytqwjl .gt_font_normal {
   font-weight: normal;
 }
 
-#hjbeohkvnb .gt_font_bold {
+#tiazytqwjl .gt_font_bold {
   font-weight: bold;
 }
 
-#hjbeohkvnb .gt_font_italic {
+#tiazytqwjl .gt_font_italic {
   font-style: italic;
 }
 
-#hjbeohkvnb .gt_super {
+#tiazytqwjl .gt_super {
   font-size: 65%;
 }
 
-#hjbeohkvnb .gt_footnote_marks {
+#tiazytqwjl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hjbeohkvnb .gt_asterisk {
+#tiazytqwjl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hjbeohkvnb .gt_indent_1 {
+#tiazytqwjl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hjbeohkvnb .gt_indent_2 {
+#tiazytqwjl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hjbeohkvnb .gt_indent_3 {
+#tiazytqwjl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hjbeohkvnb .gt_indent_4 {
+#tiazytqwjl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hjbeohkvnb .gt_indent_5 {
+#tiazytqwjl .gt_indent_5 {
   text-indent: 25px;
+}
+
+#tiazytqwjl .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tiazytqwjl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 
 tbody tr:last-child {
@@ -1486,7 +1503,6 @@ tbody tr:last-child {
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
-    
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Category">Category</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Operator">Operator</th>
@@ -1653,9 +1669,7 @@ tbody tr:last-child {
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>) <span class="co"># you only need to install the package once</span></span>
 <span id="cb113-2"><a href="#cb113-2"></a><span class="fu">library</span>(dplyr) <span class="co"># but you need to load the package each session </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>The <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> serves as a repository for most packages (21,1145 as of August 2024).</li>
-</ul>
+<p>The <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> serves as a repository for most packages (21,1145 as of August 2024).</p>
 
 <img data-src="img/rpackages.png" class="r-stretch"></section>
 <section id="the-tidyverse" class="slide level2">
@@ -1847,10 +1861,43 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 </div>
 </div>
 </section>
+<section id="distinct" class="slide level2">
+<h2>distinct()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a><span class="fu">distinct</span>(penguins, sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 1
+  sex   
+  &lt;fct&gt; 
+1 male  
+2 female
+3 &lt;NA&gt;  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="fu">distinct</span>(penguins, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 1
+  island   
+  &lt;fct&gt;    
+1 Torgersen
+2 Biscoe   
+3 Dream    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="fu">distinct</span>(penguins, island, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  island    species
+  &lt;fct&gt;     &lt;fct&gt;  
+1 Torgersen Adelie 
+2 Biscoe    Adelie 
+3 Dream     Adelie 
+# … with 2 more rows</code></pre>
+</div>
+</div>
+</section>
 <section id="filter" class="slide level2">
 <h2>filter()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a><span class="fu">filter</span>(penguins, sex <span class="sc">==</span> <span class="st">"female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a><span class="fu">filter</span>(penguins, sex <span class="sc">==</span> <span class="st">"female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 165 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -1861,7 +1908,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 162 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="fu">filter</span>(penguins, body_mass_g <span class="sc">&gt;</span> <span class="dv">4800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="fu">filter</span>(penguins, body_mass_g <span class="sc">&gt;</span> <span class="dv">4800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 81 × 8
   species island bill_length_mm bill_depth_mm flipper_leng…¹ body_…² sex    year
@@ -1872,7 +1919,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 78 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="fu">filter</span>(penguins, sex <span class="sc">==</span> <span class="st">"female"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">4800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="fu">filter</span>(penguins, sex <span class="sc">==</span> <span class="st">"female"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">4800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 8
   species island bill_length_mm bill_depth_mm flipper_leng…¹ body_…² sex    year
@@ -1888,7 +1935,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="filter-1" class="slide level2">
 <h2>filter()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a><span class="fu">filter</span>(penguins, <span class="fu">is.na</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="fu">filter</span>(penguins, <span class="fu">is.na</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -1897,7 +1944,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 2 Gentoo  Biscoe                NA            NA          NA      NA &lt;NA&gt;   2009
 # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 342 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -1913,7 +1960,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="filter-2" class="slide level2">
 <h2>filter()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="fu">filter</span>(penguins, island <span class="sc">==</span> <span class="st">"Biscoe"</span> <span class="sc">|</span> island <span class="sc">==</span> <span class="st">"Dream"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a><span class="fu">filter</span>(penguins, island <span class="sc">==</span> <span class="st">"Biscoe"</span> <span class="sc">|</span> island <span class="sc">==</span> <span class="st">"Dream"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 292 × 8
   species island bill_length_mm bill_depth_mm flipper_leng…¹ body_…² sex    year
@@ -1924,7 +1971,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 289 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="fu">filter</span>(penguins, island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a><span class="fu">filter</span>(penguins, island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 292 × 8
   species island bill_length_mm bill_depth_mm flipper_leng…¹ body_…² sex    year
@@ -1935,7 +1982,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 289 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span>island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span>island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 52 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -1951,9 +1998,9 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="filter-with-string-helpers" class="slide level2">
 <h2>filter() with string helpers</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb151-2"><a href="#cb151-2"></a></span>
-<span id="cb151-3"><a href="#cb151-3"></a><span class="fu">filter</span>(penguins, <span class="fu">str_detect</span>(island, <span class="st">"ger"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb157-2"><a href="#cb157-2"></a></span>
+<span id="cb157-3"><a href="#cb157-3"></a><span class="fu">filter</span>(penguins, <span class="fu">str_detect</span>(island, <span class="st">"ger"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 52 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -1964,7 +2011,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 49 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a><span class="fu">filter</span>(penguins, <span class="fu">str_length</span>(species) <span class="sc">==</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1"></a><span class="fu">filter</span>(penguins, <span class="fu">str_length</span>(species) <span class="sc">==</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 276 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -1980,7 +2027,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="mutate" class="slide level2">
 <h2>mutate()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a><span class="fu">mutate</span>(penguins, <span class="at">body_mass_lb =</span> body_mass_g<span class="sc">/</span><span class="fl">453.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a><span class="fu">mutate</span>(penguins, <span class="at">body_mass_lb =</span> body_mass_g<span class="sc">/</span><span class="fl">453.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 9
   species island    bill_length_mm bill_de…¹ flipp…² body_…³ sex    year body_…⁴
@@ -1991,13 +2038,13 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 341 more rows, and abbreviated variable names ¹​bill_depth_mm,
 #   ²​flipper_length_mm, ³​body_mass_g, ⁴​body_mass_lb</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a>usa_penguins <span class="ot">&lt;-</span> <span class="fu">mutate</span>(</span>
-<span id="cb157-2"><a href="#cb157-2"></a>  penguins, </span>
-<span id="cb157-3"><a href="#cb157-3"></a>  <span class="at">body_mass_lb =</span> body_mass_g<span class="sc">/</span><span class="fl">453.6</span>, </span>
-<span id="cb157-4"><a href="#cb157-4"></a>  <span class="at">flipper_length_in =</span> flipper_length_mm<span class="sc">/</span><span class="fl">25.4</span></span>
-<span id="cb157-5"><a href="#cb157-5"></a>  )</span>
-<span id="cb157-6"><a href="#cb157-6"></a></span>
-<span id="cb157-7"><a href="#cb157-7"></a><span class="fu">select</span>(usa_penguins, species, body_mass_lb, flipper_length_in)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1"></a>usa_penguins <span class="ot">&lt;-</span> <span class="fu">mutate</span>(</span>
+<span id="cb163-2"><a href="#cb163-2"></a>  penguins, </span>
+<span id="cb163-3"><a href="#cb163-3"></a>  <span class="at">body_mass_lb =</span> body_mass_g<span class="sc">/</span><span class="fl">453.6</span>, </span>
+<span id="cb163-4"><a href="#cb163-4"></a>  <span class="at">flipper_length_in =</span> flipper_length_mm<span class="sc">/</span><span class="fl">25.4</span></span>
+<span id="cb163-5"><a href="#cb163-5"></a>  )</span>
+<span id="cb163-6"><a href="#cb163-6"></a></span>
+<span id="cb163-7"><a href="#cb163-7"></a><span class="fu">select</span>(usa_penguins, species, body_mass_lb, flipper_length_in)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
   species body_mass_lb flipper_length_in
@@ -2015,7 +2062,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <li>If you need to specify only one condition, use <code>if_else()</code>. Otherwise, use <code>case_when()</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1"></a><span class="fu">mutate</span>(penguins, <span class="at">body_mass_g =</span> <span class="fu">if_else</span>(island <span class="sc">==</span> <span class="st">"Biscoe"</span>, body_mass_g <span class="sc">-</span> <span class="dv">50</span>, body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a><span class="fu">mutate</span>(penguins, <span class="at">body_mass_g =</span> <span class="fu">if_else</span>(island <span class="sc">==</span> <span class="st">"Biscoe"</span>, body_mass_g <span class="sc">-</span> <span class="dv">50</span>, body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -2026,13 +2073,13 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 341 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a>new_measurements <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">new_body_mass_g =</span> <span class="fu">case_when</span>(</span>
-<span id="cb161-2"><a href="#cb161-2"></a>  island <span class="sc">==</span> <span class="st">"Biscoe"</span> <span class="sc">~</span> body_mass_g <span class="sc">-</span> <span class="dv">50</span>,</span>
-<span id="cb161-3"><a href="#cb161-3"></a>  island <span class="sc">==</span> <span class="st">"Dream"</span> <span class="sc">~</span> body_mass_g <span class="sc">-</span> <span class="dv">75</span>,</span>
-<span id="cb161-4"><a href="#cb161-4"></a>  island <span class="sc">==</span> <span class="st">"Torgersen"</span> <span class="sc">~</span> body_mass_g <span class="sc">-</span> <span class="dv">100</span></span>
-<span id="cb161-5"><a href="#cb161-5"></a>  )</span>
-<span id="cb161-6"><a href="#cb161-6"></a>)</span>
-<span id="cb161-7"><a href="#cb161-7"></a><span class="fu">select</span>(new_measurements, island, body_mass_g, new_body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a>new_measurements <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">new_body_mass_g =</span> <span class="fu">case_when</span>(</span>
+<span id="cb167-2"><a href="#cb167-2"></a>  island <span class="sc">==</span> <span class="st">"Biscoe"</span> <span class="sc">~</span> body_mass_g <span class="sc">-</span> <span class="dv">50</span>,</span>
+<span id="cb167-3"><a href="#cb167-3"></a>  island <span class="sc">==</span> <span class="st">"Dream"</span> <span class="sc">~</span> body_mass_g <span class="sc">-</span> <span class="dv">75</span>,</span>
+<span id="cb167-4"><a href="#cb167-4"></a>  island <span class="sc">==</span> <span class="st">"Torgersen"</span> <span class="sc">~</span> body_mass_g <span class="sc">-</span> <span class="dv">100</span></span>
+<span id="cb167-5"><a href="#cb167-5"></a>  )</span>
+<span id="cb167-6"><a href="#cb167-6"></a>)</span>
+<span id="cb167-7"><a href="#cb167-7"></a><span class="fu">select</span>(new_measurements, island, body_mass_g, new_body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
   island    body_mass_g new_body_mass_g
@@ -2047,8 +2094,8 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="mutate-with-string-helpers" class="slide level2">
 <h2>mutate() with string helpers</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1"></a>penguins_with_ids <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">id =</span> <span class="fu">paste</span>(island, species, sex, year, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
-<span id="cb163-2"><a href="#cb163-2"></a><span class="fu">select</span>(penguins_with_ids, island, species, sex, year, id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a>penguins_with_ids <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">id =</span> <span class="fu">paste</span>(island, species, sex, year, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
+<span id="cb169-2"><a href="#cb169-2"></a><span class="fu">select</span>(penguins_with_ids, island, species, sex, year, id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 5
   island    species sex     year id                          
@@ -2058,7 +2105,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 3 Torgersen Adelie  female  2007 Torgersen-Adelie-female-2007
 # … with 341 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a><span class="fu">mutate</span>(penguins, <span class="at">sex =</span> <span class="fu">str_sub</span>(sex, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="fu">mutate</span>(penguins, <span class="at">sex =</span> <span class="fu">str_sub</span>(sex, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -2069,7 +2116,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 # … with 341 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a><span class="fu">mutate</span>(penguins, <span class="at">sex =</span> <span class="fu">str_to_title</span>(sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a><span class="fu">mutate</span>(penguins, <span class="at">sex =</span> <span class="fu">str_to_title</span>(sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -2085,7 +2132,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="count" class="slide level2">
 <h2>count()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a><span class="fu">count</span>(penguins, sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a><span class="fu">count</span>(penguins, sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   sex        n
@@ -2094,7 +2141,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 2 male     168
 3 &lt;NA&gt;      11</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="fu">count</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1"></a><span class="fu">count</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -2103,7 +2150,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 2 Chinstrap    68
 3 Gentoo      124</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a><span class="fu">count</span>(penguins, sex, species, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a><span class="fu">count</span>(penguins, sex, species, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   sex    species       n
@@ -2119,22 +2166,53 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 </div>
 </div>
 </section>
+<section id="count-1" class="slide level2">
+<h2>count()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a><span class="fu">count</span>(penguins, island, <span class="at">name =</span> <span class="st">"n_island_dwellers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  island    n_island_dwellers
+  &lt;fct&gt;                 &lt;int&gt;
+1 Biscoe                  168
+2 Dream                   124
+3 Torgersen                52</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a><span class="fu">count</span>(penguins, island <span class="sc">==</span> <span class="st">"Biscoe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  `island == "Biscoe"`     n
+  &lt;lgl&gt;                &lt;int&gt;
+1 FALSE                  176
+2 TRUE                   168</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1"></a><span class="fu">count</span>(penguins, body_mass_g <span class="sc">&lt;</span> <span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  `body_mass_g &lt; 3000`     n
+  &lt;lgl&gt;                &lt;int&gt;
+1 FALSE                  333
+2 TRUE                     9
+3 NA                       2</code></pre>
+</div>
+</div>
+</section>
 <section id="summarize" class="slide level2">
 <h2>summarize()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a><span class="fu">summarize</span>(penguins, <span class="at">mean_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1"></a><span class="fu">summarize</span>(penguins, <span class="at">mean_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_flipper_length
                 &lt;dbl&gt;
 1                  NA</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1"></a><span class="fu">summarize</span>(</span>
-<span id="cb177-2"><a href="#cb177-2"></a>  penguins, </span>
-<span id="cb177-3"><a href="#cb177-3"></a>  <span class="at">mean_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb177-4"><a href="#cb177-4"></a>  <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb177-5"><a href="#cb177-5"></a>  <span class="at">mean_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb177-6"><a href="#cb177-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1"></a><span class="fu">summarize</span>(</span>
+<span id="cb189-2"><a href="#cb189-2"></a>  penguins, </span>
+<span id="cb189-3"><a href="#cb189-3"></a>  <span class="at">mean_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb189-4"><a href="#cb189-4"></a>  <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb189-5"><a href="#cb189-5"></a>  <span class="at">mean_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb189-6"><a href="#cb189-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   mean_flipper_length mean_body_mass mean_bill_length
@@ -2146,8 +2224,8 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="group_by" class="slide level2">
 <h2>group_by()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a>penguins_grouped_by_sex <span class="ot">&lt;-</span> <span class="fu">group_by</span>(penguins, sex)</span>
-<span id="cb179-2"><a href="#cb179-2"></a><span class="fu">summarize</span>(penguins_grouped_by_sex, <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1"></a>penguins_grouped_by_sex <span class="ot">&lt;-</span> <span class="fu">group_by</span>(penguins, sex)</span>
+<span id="cb191-2"><a href="#cb191-2"></a><span class="fu">summarize</span>(penguins_grouped_by_sex, <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   sex    mean_body_mass
@@ -2156,8 +2234,8 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 2 male            4546.
 3 &lt;NA&gt;            4006.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a>penguins_grouped_by_sex_and_species <span class="ot">&lt;-</span> <span class="fu">group_by</span>(penguins, sex, species)</span>
-<span id="cb181-2"><a href="#cb181-2"></a><span class="fu">summarize</span>(penguins_grouped_by_sex_and_species, <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a>penguins_grouped_by_sex_and_species <span class="ot">&lt;-</span> <span class="fu">group_by</span>(penguins, sex, species)</span>
+<span id="cb193-2"><a href="#cb193-2"></a><span class="fu">summarize</span>(penguins_grouped_by_sex_and_species, <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
 # Groups:   sex [3]
@@ -2172,7 +2250,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 7 &lt;NA&gt;   Adelie             3540 
 8 &lt;NA&gt;   Gentoo             4588.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a><span class="fu">summarize</span>(penguins, <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="fu">summarize</span>(penguins, <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   sex    mean_body_mass
@@ -2190,11 +2268,11 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <li>Windows: <code>Ctrl + M</code>; Mac: <code>Cmd + M</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb185-2"><a href="#cb185-2"></a>  <span class="fu">filter</span>(body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb185-3"><a href="#cb185-3"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb185-4"><a href="#cb185-4"></a>  <span class="fu">summarize</span>(<span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb185-5"><a href="#cb185-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_body_mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb197-2"><a href="#cb197-2"></a>  <span class="fu">filter</span>(body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb197-3"><a href="#cb197-3"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb197-4"><a href="#cb197-4"></a>  <span class="fu">summarize</span>(<span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb197-5"><a href="#cb197-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_body_mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   sex    mean_body_mass
@@ -2205,7 +2283,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -2216,48 +2294,92 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 </div>
 </div>
 </section>
-<section id="practice-using-tidyverse-functions" class="slide level2">
-<h2>Practice using tidyverse functions!</h2>
+<section id="the-tidyverse-paradigm" class="slide level2">
+<h2>The tidyverse paradigm</h2>
+<ul>
+<li>‘siuba’ in Python:</li>
+</ul>
+<div class="cell" data-python.reticulate="false">
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb201-1"><a href="#cb201-1"></a><span class="im">from</span> siuba <span class="im">import</span> group_by, summarize, _</span>
+<span id="cb201-2"><a href="#cb201-2"></a><span class="im">from</span> siuba.data <span class="im">import</span> mtcars</span>
+<span id="cb201-3"><a href="#cb201-3"></a></span>
+<span id="cb201-4"><a href="#cb201-4"></a>(mtcars</span>
+<span id="cb201-5"><a href="#cb201-5"></a>  <span class="op">&gt;&gt;</span> group_by(_.cyl)</span>
+<span id="cb201-6"><a href="#cb201-6"></a>  <span class="op">&gt;&gt;</span> summarize(avg_hp <span class="op">=</span> _.hp.mean()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>‘Tidier.jl’ in Julia:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb202-1"><a href="#cb202-1"></a><span class="pp">@chain</span> movies <span class="cf">begin</span></span>
+<span id="cb202-2"><a href="#cb202-2"></a>    <span class="pp">@group_by</span>(Year)</span>
+<span id="cb202-3"><a href="#cb202-3"></a>    <span class="pp">@summarize</span>(Mean_Yearly_Rating <span class="op">=</span> <span class="fu">mean</span>(<span class="fu">skipmissing</span>(Rating)),</span>
+<span id="cb202-4"><a href="#cb202-4"></a>        Median_Yearly_Rating <span class="op">=</span> <span class="fu">median</span>(<span class="fu">skipmissing</span>(Rating)))</span>
+<span id="cb202-5"><a href="#cb202-5"></a>    <span class="pp">@slice</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">5</span>)</span>
+<span id="cb202-6"><a href="#cb202-6"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>PRQL:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource prql number-lines code-with-copy"><code class="sourceCode"><span id="cb203-1"><a href="#cb203-1"></a>from invoices</span>
+<span id="cb203-2"><a href="#cb203-2"></a>filter invoice_date &gt;= @1970-01-16</span>
+<span id="cb203-3"><a href="#cb203-3"></a>derive {</span>
+<span id="cb203-4"><a href="#cb203-4"></a>  transaction_fees = 0.8,</span>
+<span id="cb203-5"><a href="#cb203-5"></a>  income = total - transaction_fees</span>
+<span id="cb203-6"><a href="#cb203-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practice-using-the-tidyverse" class="slide level2">
+<h2>Practice using the tidyverse!</h2>
 <p>Source: <a href="https://data.sfgov.org/Transportation/Air-Traffic-Passenger-Statistics/rkru-6vcg/about_data">Air Traffic Passenger Statistics</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1"></a>air_traffic <span class="ot">&lt;-</span> <span class="fu">read.socrata</span>(<span class="st">"https://data.sfgov.org/resource/rkru-6vcg.csv"</span>)</span>
-<span id="cb189-2"><a href="#cb189-2"></a></span>
-<span id="cb189-3"><a href="#cb189-3"></a><span class="co"># How many passengers deplaned from airlines with 'China' in their name?</span></span>
-<span id="cb189-4"><a href="#cb189-4"></a>air_traffic <span class="sc">%&gt;%</span> </span>
-<span id="cb189-5"><a href="#cb189-5"></a>  <span class="fu">filter</span>(</span>
-<span id="cb189-6"><a href="#cb189-6"></a>    <span class="fu">str_detect</span>(operating_airline, <span class="st">"China"</span>),</span>
-<span id="cb189-7"><a href="#cb189-7"></a>    activity_type_code <span class="sc">==</span> <span class="st">"Deplaned"</span></span>
-<span id="cb189-8"><a href="#cb189-8"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb189-9"><a href="#cb189-9"></a>  <span class="fu">group_by</span>(operating_airline) <span class="sc">%&gt;%</span> </span>
-<span id="cb189-10"><a href="#cb189-10"></a>  <span class="fu">summarize</span>(<span class="at">passengers =</span> <span class="fu">sum</span>(passenger_count)) <span class="sc">%&gt;%</span> </span>
-<span id="cb189-11"><a href="#cb189-11"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(passengers))</span>
-<span id="cb189-12"><a href="#cb189-12"></a></span>
-<span id="cb189-13"><a href="#cb189-13"></a><span class="co"># How many flights for each operating airline in 2020?</span></span>
-<span id="cb189-14"><a href="#cb189-14"></a>air_traffic <span class="sc">%&gt;%</span> </span>
-<span id="cb189-15"><a href="#cb189-15"></a>  <span class="fu">filter</span>(</span>
-<span id="cb189-16"><a href="#cb189-16"></a>    activity_period_start_date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2020-01-01"</span>) <span class="sc">&amp;</span> </span>
-<span id="cb189-17"><a href="#cb189-17"></a>      activity_period_start_date <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"2020-12-31"</span>)</span>
-<span id="cb189-18"><a href="#cb189-18"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb189-19"><a href="#cb189-19"></a>  <span class="fu">count</span>(operating_airline, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">name =</span> <span class="st">"flights"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb189-20"><a href="#cb189-20"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1"></a>air_traffic <span class="ot">&lt;-</span> <span class="fu">read.socrata</span>(<span class="st">"https://data.sfgov.org/resource/rkru-6vcg.csv"</span>)</span>
+<span id="cb204-2"><a href="#cb204-2"></a></span>
+<span id="cb204-3"><a href="#cb204-3"></a><span class="co"># How many passengers deplaned from airlines with 'China' in their name?</span></span>
+<span id="cb204-4"><a href="#cb204-4"></a>air_traffic <span class="sc">%&gt;%</span> </span>
+<span id="cb204-5"><a href="#cb204-5"></a>  <span class="fu">filter</span>(</span>
+<span id="cb204-6"><a href="#cb204-6"></a>    <span class="fu">str_detect</span>(operating_airline, <span class="st">"China"</span>),</span>
+<span id="cb204-7"><a href="#cb204-7"></a>    activity_type_code <span class="sc">==</span> <span class="st">"Deplaned"</span></span>
+<span id="cb204-8"><a href="#cb204-8"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb204-9"><a href="#cb204-9"></a>  <span class="fu">group_by</span>(operating_airline) <span class="sc">%&gt;%</span> </span>
+<span id="cb204-10"><a href="#cb204-10"></a>  <span class="fu">summarize</span>(<span class="at">passengers =</span> <span class="fu">sum</span>(passenger_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb204-11"><a href="#cb204-11"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(passengers))</span>
+<span id="cb204-12"><a href="#cb204-12"></a></span>
+<span id="cb204-13"><a href="#cb204-13"></a><span class="co"># How many flights for each operating airline in 2020?</span></span>
+<span id="cb204-14"><a href="#cb204-14"></a>air_traffic <span class="sc">%&gt;%</span> </span>
+<span id="cb204-15"><a href="#cb204-15"></a>  <span class="fu">filter</span>(</span>
+<span id="cb204-16"><a href="#cb204-16"></a>    activity_period_start_date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2020-01-01"</span>) <span class="sc">&amp;</span> </span>
+<span id="cb204-17"><a href="#cb204-17"></a>      activity_period_start_date <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"2020-12-31"</span>)</span>
+<span id="cb204-18"><a href="#cb204-18"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb204-19"><a href="#cb204-19"></a>  <span class="fu">count</span>(operating_airline, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">name =</span> <span class="st">"flights"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb204-20"><a href="#cb204-20"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="left_join" class="slide level2">
 <h2>left_join()</h2>
 <p>If a row in ‘x’ or the left-hand side matches a row in ‘y’ or the right-hand side, the columns from the y table are joined to the x table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb190-2"><a href="#cb190-2"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>))</span>
-<span id="cb190-3"><a href="#cb190-3"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">"x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb205-2"><a href="#cb205-2"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>))</span>
+<span id="cb205-3"><a href="#cb205-3"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
+<pre><code># A tibble: 3 × 1
+      x
+  &lt;int&gt;
+1     1
+2     2
+3     3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
       x y     
   &lt;dbl&gt; &lt;chr&gt; 
 1     1 first 
-2     2 second
-3     3 &lt;NA&gt;  </code></pre>
+2     2 second</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="fu">join_by</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">"x"</span>) <span class="co"># or df1 %&gt;% left_join(df2, join_by(x))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
       x y     
@@ -2272,9 +2394,27 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <h2>left_join() (multiple matches)</h2>
 <p>If a row in ‘x’ or the left-hand side has <strong>multiple</strong> matches in ‘y’ or the right-hand side, <strong>all</strong> the matching rows in y will be joined to x.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb194-2"><a href="#cb194-2"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">code =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"third"</span>))</span>
-<span id="cb194-3"><a href="#cb194-3"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="fu">join_by</span>(id <span class="sc">==</span> code))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb211-2"><a href="#cb211-2"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">code =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"third"</span>))</span>
+<span id="cb211-3"><a href="#cb211-3"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 1
+     id
+  &lt;int&gt;
+1     1
+2     2
+3     3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+   code y     
+  &lt;dbl&gt; &lt;chr&gt; 
+1     1 first 
+2     1 second
+3     2 third </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="fu">join_by</span>(id <span class="sc">==</span> code))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
      id y     
@@ -2289,14 +2429,15 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="inner_join" class="slide level2">
 <h2>inner_join()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb196-2"><a href="#cb196-2"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"fifth"</span>))</span>
-<span id="cb196-3"><a href="#cb196-3"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(df2, <span class="at">by =</span> <span class="fu">join_by</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">c1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">c2 =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>))</span>
+<span id="cb217-2"><a href="#cb217-2"></a>y <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">c1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>), <span class="at">c3 =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>, <span class="st">"y4"</span>))</span>
+<span id="cb217-3"><a href="#cb217-3"></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="fu">join_by</span>(c1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-      x y    
-  &lt;dbl&gt; &lt;chr&gt;
-1     1 first</code></pre>
+<pre><code># A tibble: 2 × 3
+     c1 c2    c3   
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+1     1 x1    y1   
+2     2 x2    y2   </code></pre>
 </div>
 </div>
 
@@ -2304,18 +2445,18 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="bind_rows" class="slide level2">
 <h2>bind_rows()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1"></a>penguins_2007 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
-<span id="cb198-2"><a href="#cb198-2"></a>penguins_2008 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>)</span>
-<span id="cb198-3"><a href="#cb198-3"></a><span class="fu">nrow</span>(penguins_2007)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1"></a>penguins_2007 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb219-2"><a href="#cb219-2"></a>penguins_2008 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>)</span>
+<span id="cb219-3"><a href="#cb219-3"></a><span class="fu">nrow</span>(penguins_2007)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 110</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1"></a><span class="fu">nrow</span>(penguins_2008)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1"></a><span class="fu">nrow</span>(penguins_2008)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 114</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1"></a>all_penguins <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(penguins_2007, penguins_2008)</span>
-<span id="cb202-2"><a href="#cb202-2"></a>all_penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href="#cb223-1"></a>all_penguins <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(penguins_2007, penguins_2008)</span>
+<span id="cb223-2"><a href="#cb223-2"></a>all_penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 224 × 8
   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
@@ -2336,19 +2477,20 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="practice-joining-data" class="slide level2">
 <h2>Practice joining data!</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/flights.rds"</span>)</span>
-<span id="cb204-2"><a href="#cb204-2"></a>airlines <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/airlines.rds"</span>)</span>
-<span id="cb204-3"><a href="#cb204-3"></a>airports <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/planes.rds"</span>)</span>
-<span id="cb204-4"><a href="#cb204-4"></a></span>
-<span id="cb204-5"><a href="#cb204-5"></a><span class="fu">left_join</span>(flights, airlines, <span class="at">by =</span> <span class="fu">join_by</span>(carrier))</span>
-<span id="cb204-6"><a href="#cb204-6"></a></span>
-<span id="cb204-7"><a href="#cb204-7"></a>flights <span class="sc">%&gt;%</span> </span>
-<span id="cb204-8"><a href="#cb204-8"></a>  <span class="fu">left_join</span>(airports, <span class="fu">join_by</span>(dest <span class="sc">==</span> faa)) <span class="sc">%&gt;%</span> </span>
-<span id="cb204-9"><a href="#cb204-9"></a>  <span class="fu">select</span>(year, month, day, origin, dest, tzone)</span>
-<span id="cb204-10"><a href="#cb204-10"></a></span>
-<span id="cb204-11"><a href="#cb204-11"></a>flights <span class="sc">%&gt;%</span> </span>
-<span id="cb204-12"><a href="#cb204-12"></a>  <span class="fu">inner_join</span>(planes, <span class="fu">join_by</span>(tailnum)) <span class="sc">%&gt;%</span> </span>
-<span id="cb204-13"><a href="#cb204-13"></a>  <span class="fu">select</span>(flight, month, day, type, engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb225"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb225-1"><a href="#cb225-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/flights.rds"</span>)</span>
+<span id="cb225-2"><a href="#cb225-2"></a>airlines <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/airlines.rds"</span>)</span>
+<span id="cb225-3"><a href="#cb225-3"></a>planes <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/planes.rds"</span>)</span>
+<span id="cb225-4"><a href="#cb225-4"></a>airports <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/airports.rds"</span>)</span>
+<span id="cb225-5"><a href="#cb225-5"></a></span>
+<span id="cb225-6"><a href="#cb225-6"></a><span class="fu">left_join</span>(flights, airlines, <span class="at">by =</span> <span class="fu">join_by</span>(carrier))</span>
+<span id="cb225-7"><a href="#cb225-7"></a></span>
+<span id="cb225-8"><a href="#cb225-8"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb225-9"><a href="#cb225-9"></a>  <span class="fu">left_join</span>(airports, <span class="fu">join_by</span>(dest <span class="sc">==</span> faa)) <span class="sc">%&gt;%</span> </span>
+<span id="cb225-10"><a href="#cb225-10"></a>  <span class="fu">select</span>(year, month, day, origin, dest, tzone)</span>
+<span id="cb225-11"><a href="#cb225-11"></a></span>
+<span id="cb225-12"><a href="#cb225-12"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb225-13"><a href="#cb225-13"></a>  <span class="fu">inner_join</span>(planes, <span class="fu">join_by</span>(tailnum)) <span class="sc">%&gt;%</span> </span>
+<span id="cb225-14"><a href="#cb225-14"></a>  <span class="fu">select</span>(flight, month, day, type, engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pivoting" class="slide level2">
@@ -2359,7 +2501,7 @@ $ police_district       &lt;chr&gt; "BAYVIEW", "BAYVIEW", "MISSION", "MISSION", 
 <section id="pivot_longer" class="slide level2">
 <h2>pivot_longer()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1"></a><span class="fu">glimpse</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1"></a><span class="fu">glimpse</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 18
 Columns: 11
@@ -2375,12 +2517,12 @@ $ `$100-150k`          &lt;dbl&gt; 109, 59, 39, 792, 17, 723, 48, 81, 11, 87, 75
 $ `&gt;150k`              &lt;dbl&gt; 84, 74, 53, 633, 18, 414, 54, 78, 6, 151, 634, 42…
 $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162, 13…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1"></a>relig_income <span class="sc">%&gt;%</span> </span>
-<span id="cb207-2"><a href="#cb207-2"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb207-3"><a href="#cb207-3"></a>    <span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>,</span>
-<span id="cb207-4"><a href="#cb207-4"></a>    <span class="at">names_to =</span> <span class="st">"income"</span>,</span>
-<span id="cb207-5"><a href="#cb207-5"></a>    <span class="at">values_to =</span> <span class="st">"count"</span></span>
-<span id="cb207-6"><a href="#cb207-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb228-1"><a href="#cb228-1"></a>relig_income <span class="sc">%&gt;%</span> </span>
+<span id="cb228-2"><a href="#cb228-2"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb228-3"><a href="#cb228-3"></a>    <span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>,</span>
+<span id="cb228-4"><a href="#cb228-4"></a>    <span class="at">names_to =</span> <span class="st">"income"</span>,</span>
+<span id="cb228-5"><a href="#cb228-5"></a>    <span class="at">values_to =</span> <span class="st">"count"</span></span>
+<span id="cb228-6"><a href="#cb228-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 180 × 3
   religion income    count
@@ -2400,12 +2542,12 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 <section id="pivot_wider" class="slide level2">
 <h2>pivot_wider()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb209-2"><a href="#cb209-2"></a>  <span class="fu">count</span>(island, species) <span class="sc">%&gt;%</span> </span>
-<span id="cb209-3"><a href="#cb209-3"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb209-4"><a href="#cb209-4"></a>    <span class="at">names_from =</span> species,</span>
-<span id="cb209-5"><a href="#cb209-5"></a>    <span class="at">values_from =</span> n</span>
-<span id="cb209-6"><a href="#cb209-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb230-2"><a href="#cb230-2"></a>  <span class="fu">count</span>(island, species) <span class="sc">%&gt;%</span> </span>
+<span id="cb230-3"><a href="#cb230-3"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb230-4"><a href="#cb230-4"></a>    <span class="at">names_from =</span> species,</span>
+<span id="cb230-5"><a href="#cb230-5"></a>    <span class="at">values_from =</span> n</span>
+<span id="cb230-6"><a href="#cb230-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   island    Adelie Gentoo Chinstrap
@@ -2419,86 +2561,93 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 <section id="writing-data" class="slide level2">
 <h2>Writing Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a>adelie_males_on_torgersen_in_2007 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb211-2"><a href="#cb211-2"></a>  <span class="fu">filter</span>(</span>
-<span id="cb211-3"><a href="#cb211-3"></a>    species <span class="sc">==</span> <span class="st">"Adelie"</span>,</span>
-<span id="cb211-4"><a href="#cb211-4"></a>    sex <span class="sc">==</span> <span class="st">"male"</span>,</span>
-<span id="cb211-5"><a href="#cb211-5"></a>    island <span class="sc">==</span> <span class="st">"Torgersen"</span>,</span>
-<span id="cb211-6"><a href="#cb211-6"></a>    year <span class="sc">==</span> <span class="st">"2007"</span></span>
-<span id="cb211-7"><a href="#cb211-7"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb211-8"><a href="#cb211-8"></a>  <span class="fu">select</span>(bill_length_mm<span class="sc">:</span>body_mass_g)</span>
-<span id="cb211-9"><a href="#cb211-9"></a></span>
-<span id="cb211-10"><a href="#cb211-10"></a><span class="fu">write_csv</span>(adelie_males_on_torgersen_in_2007, <span class="st">"adelie_males_on_torgersen_in_2007.csv"</span>)</span>
-<span id="cb211-11"><a href="#cb211-11"></a><span class="fu">write_rds</span>(adelie_males_on_torgersen_in_2007, <span class="st">"adelie_males_on_torgersen_in_2007.rds"</span>)</span>
-<span id="cb211-12"><a href="#cb211-12"></a></span>
-<span id="cb211-13"><a href="#cb211-13"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb211-14"><a href="#cb211-14"></a><span class="fu">write_xlsx</span>(adelie_males_on_torgersen_in_2007, <span class="st">"adelie_males_on_torgersen_in_2007.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb232-1"><a href="#cb232-1"></a>adelie_males_on_torgersen_in_2007 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb232-2"><a href="#cb232-2"></a>  <span class="fu">filter</span>(</span>
+<span id="cb232-3"><a href="#cb232-3"></a>    species <span class="sc">==</span> <span class="st">"Adelie"</span>,</span>
+<span id="cb232-4"><a href="#cb232-4"></a>    sex <span class="sc">==</span> <span class="st">"male"</span>,</span>
+<span id="cb232-5"><a href="#cb232-5"></a>    island <span class="sc">==</span> <span class="st">"Torgersen"</span>,</span>
+<span id="cb232-6"><a href="#cb232-6"></a>    year <span class="sc">==</span> <span class="st">"2007"</span></span>
+<span id="cb232-7"><a href="#cb232-7"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb232-8"><a href="#cb232-8"></a>  <span class="fu">select</span>(bill_length_mm<span class="sc">:</span>body_mass_g)</span>
+<span id="cb232-9"><a href="#cb232-9"></a></span>
+<span id="cb232-10"><a href="#cb232-10"></a><span class="fu">write_csv</span>(adelie_males_on_torgersen_in_2007, <span class="st">"data/adelie_males_on_torgersen_in_2007.csv"</span>)</span>
+<span id="cb232-11"><a href="#cb232-11"></a><span class="fu">write_rds</span>(adelie_males_on_torgersen_in_2007, <span class="st">"data/adelie_males_on_torgersen_in_2007.rds"</span>)</span>
+<span id="cb232-12"><a href="#cb232-12"></a></span>
+<span id="cb232-13"><a href="#cb232-13"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb232-14"><a href="#cb232-14"></a><span class="fu">write_xlsx</span>(adelie_males_on_torgersen_in_2007, <span class="st">"data/adelie_males_on_torgersen_in_2007.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ggplot2" class="slide level2">
 <h2>ggplot2</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
-<span id="cb212-2"><a href="#cb212-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outliers =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb212-3"><a href="#cb212-3"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb212-4"><a href="#cb212-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species"</span>, <span class="at">y =</span> <span class="st">"Body Mass (grams)"</span>, <span class="at">title =</span> <span class="st">"Penguin Body Mass by Species"</span>) <span class="sc">+</span></span>
-<span id="cb212-5"><a href="#cb212-5"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb212-6"><a href="#cb212-6"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb233-2"><a href="#cb233-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outliers =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb233-3"><a href="#cb233-3"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb233-4"><a href="#cb233-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species"</span>, <span class="at">y =</span> <span class="st">"Body Mass (grams)"</span>, <span class="at">title =</span> <span class="st">"Penguin Body Mass by Species"</span>) <span class="sc">+</span></span>
+<span id="cb233-5"><a href="#cb233-5"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb233-6"><a href="#cb233-6"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="intro-to-R_files/figure-revealjs/unnamed-chunk-54-1.png" width="960" class="r-stretch"></section>
+<img data-src="intro-to-R_files/figure-revealjs/unnamed-chunk-59-1.png" width="960" class="r-stretch"></section>
 <section id="gt" class="slide level2">
 <h2>gt</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb213-2"><a href="#cb213-2"></a></span>
-<span id="cb213-3"><a href="#cb213-3"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb213-4"><a href="#cb213-4"></a>  <span class="fu">group_by</span>(island, species, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-5"><a href="#cb213-5"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb213-6"><a href="#cb213-6"></a>    <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb213-7"><a href="#cb213-7"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-8"><a href="#cb213-8"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb213-9"><a href="#cb213-9"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-10"><a href="#cb213-10"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb213-11"><a href="#cb213-11"></a>    <span class="at">names_from =</span> sex, </span>
-<span id="cb213-12"><a href="#cb213-12"></a>    <span class="at">values_from =</span> mean_body_mass</span>
-<span id="cb213-13"><a href="#cb213-13"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-14"><a href="#cb213-14"></a>  <span class="fu">gt</span>(</span>
-<span id="cb213-15"><a href="#cb213-15"></a>    <span class="at">groupname_col =</span> <span class="st">"Island"</span>, </span>
-<span id="cb213-16"><a href="#cb213-16"></a>    <span class="at">rowname_col =</span> <span class="st">"Species"</span></span>
-<span id="cb213-17"><a href="#cb213-17"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-18"><a href="#cb213-18"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb213-19"><a href="#cb213-19"></a>    <span class="at">style =</span> <span class="fu">list</span>(<span class="fu">cell_text</span>(<span class="at">align =</span> <span class="st">"right"</span>)),</span>
-<span id="cb213-20"><a href="#cb213-20"></a>    <span class="at">locations =</span> <span class="fu">cells_stub</span>(<span class="at">rows =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb213-21"><a href="#cb213-21"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-22"><a href="#cb213-22"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb213-23"><a href="#cb213-23"></a>    <span class="at">title =</span> <span class="st">"Penguin Body Mass"</span>,</span>
-<span id="cb213-24"><a href="#cb213-24"></a>    <span class="at">subtitle =</span> <span class="st">"Adult penguins near Palmer Station"</span></span>
-<span id="cb213-25"><a href="#cb213-25"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb234-1"><a href="#cb234-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb234-2"><a href="#cb234-2"></a></span>
+<span id="cb234-3"><a href="#cb234-3"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb234-4"><a href="#cb234-4"></a>  <span class="fu">group_by</span>(island, species, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-5"><a href="#cb234-5"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb234-6"><a href="#cb234-6"></a>    <span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb234-7"><a href="#cb234-7"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-8"><a href="#cb234-8"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb234-9"><a href="#cb234-9"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-10"><a href="#cb234-10"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb234-11"><a href="#cb234-11"></a>    <span class="at">names_from =</span> sex, </span>
+<span id="cb234-12"><a href="#cb234-12"></a>    <span class="at">values_from =</span> mean_body_mass</span>
+<span id="cb234-13"><a href="#cb234-13"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-14"><a href="#cb234-14"></a>  <span class="fu">mutate</span>(<span class="at">island =</span> <span class="fu">paste</span>(<span class="st">"On"</span>, island, <span class="st">"island"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-15"><a href="#cb234-15"></a>  <span class="fu">rename</span>(</span>
+<span id="cb234-16"><a href="#cb234-16"></a>    <span class="at">Island =</span> island,</span>
+<span id="cb234-17"><a href="#cb234-17"></a>    <span class="at">Species =</span> species,</span>
+<span id="cb234-18"><a href="#cb234-18"></a>    <span class="at">Female =</span> female,</span>
+<span id="cb234-19"><a href="#cb234-19"></a>    <span class="at">Male =</span> male</span>
+<span id="cb234-20"><a href="#cb234-20"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-21"><a href="#cb234-21"></a>  <span class="fu">gt</span>(</span>
+<span id="cb234-22"><a href="#cb234-22"></a>    <span class="at">groupname_col =</span> <span class="st">"Island"</span>, </span>
+<span id="cb234-23"><a href="#cb234-23"></a>    <span class="at">rowname_col =</span> <span class="st">"Species"</span></span>
+<span id="cb234-24"><a href="#cb234-24"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-25"><a href="#cb234-25"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb234-26"><a href="#cb234-26"></a>    <span class="at">style =</span> <span class="fu">list</span>(<span class="fu">cell_text</span>(<span class="at">align =</span> <span class="st">"right"</span>)),</span>
+<span id="cb234-27"><a href="#cb234-27"></a>    <span class="at">locations =</span> <span class="fu">cells_stub</span>(<span class="at">rows =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb234-28"><a href="#cb234-28"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-29"><a href="#cb234-29"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb234-30"><a href="#cb234-30"></a>    <span class="at">title =</span> <span class="st">"Penguin Body Mass"</span>,</span>
+<span id="cb234-31"><a href="#cb234-31"></a>    <span class="at">subtitle =</span> <span class="st">"Adult penguins near Palmer Station"</span></span>
+<span id="cb234-32"><a href="#cb234-32"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="cmdmwztyjv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cmdmwztyjv table {
+<div id="umebsclskg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#umebsclskg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cmdmwztyjv thead, #cmdmwztyjv tbody, #cmdmwztyjv tfoot, #cmdmwztyjv tr, #cmdmwztyjv td, #cmdmwztyjv th {
+#umebsclskg thead, #umebsclskg tbody, #umebsclskg tfoot, #umebsclskg tr, #umebsclskg td, #umebsclskg th {
   border-style: none;
 }
 
-#cmdmwztyjv p {
+#umebsclskg p {
   margin: 0;
   padding: 0;
 }
 
-#cmdmwztyjv .gt_table {
+#umebsclskg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2524,12 +2673,12 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-left-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_caption {
+#umebsclskg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cmdmwztyjv .gt_title {
+#umebsclskg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2541,7 +2690,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-width: 0;
 }
 
-#cmdmwztyjv .gt_subtitle {
+#umebsclskg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2553,7 +2702,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-top-width: 0;
 }
 
-#cmdmwztyjv .gt_heading {
+#umebsclskg .gt_heading {
   background-color: #D7E3F5;
   text-align: center;
   border-bottom-color: #D7E3F5;
@@ -2565,13 +2714,13 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_bottom_border {
+#umebsclskg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_col_headings {
+#umebsclskg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2586,7 +2735,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_col_heading {
+#umebsclskg .gt_col_heading {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2606,7 +2755,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   overflow-x: hidden;
 }
 
-#cmdmwztyjv .gt_column_spanner_outer {
+#umebsclskg .gt_column_spanner_outer {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2618,15 +2767,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 4px;
 }
 
-#cmdmwztyjv .gt_column_spanner_outer:first-child {
+#umebsclskg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cmdmwztyjv .gt_column_spanner_outer:last-child {
+#umebsclskg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cmdmwztyjv .gt_column_spanner {
+#umebsclskg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2638,11 +2787,11 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   width: 100%;
 }
 
-#cmdmwztyjv .gt_spanner_row {
+#umebsclskg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cmdmwztyjv .gt_group_heading {
+#umebsclskg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2668,7 +2817,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   text-align: left;
 }
 
-#cmdmwztyjv .gt_empty_group_heading {
+#umebsclskg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #D7E3F5;
@@ -2683,15 +2832,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   vertical-align: middle;
 }
 
-#cmdmwztyjv .gt_from_md > :first-child {
+#umebsclskg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cmdmwztyjv .gt_from_md > :last-child {
+#umebsclskg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cmdmwztyjv .gt_row {
+#umebsclskg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2710,7 +2859,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   overflow-x: hidden;
 }
 
-#cmdmwztyjv .gt_stub {
+#umebsclskg .gt_stub {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2723,7 +2872,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#cmdmwztyjv .gt_stub_row_group {
+#umebsclskg .gt_stub_row_group {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2737,15 +2886,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   vertical-align: top;
 }
 
-#cmdmwztyjv .gt_row_group_first td {
+#umebsclskg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cmdmwztyjv .gt_row_group_first th {
+#umebsclskg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cmdmwztyjv .gt_summary_row {
+#umebsclskg .gt_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -2755,16 +2904,16 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#cmdmwztyjv .gt_first_summary_row {
+#umebsclskg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_first_summary_row.thick {
+#umebsclskg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cmdmwztyjv .gt_last_summary_row {
+#umebsclskg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2774,7 +2923,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_grand_summary_row {
+#umebsclskg .gt_grand_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -2784,7 +2933,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#cmdmwztyjv .gt_first_grand_summary_row {
+#umebsclskg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2794,7 +2943,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-top-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_last_grand_summary_row_top {
+#umebsclskg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2804,11 +2953,11 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_striped {
+#umebsclskg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cmdmwztyjv .gt_table_body {
+#umebsclskg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2817,7 +2966,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_footnotes {
+#umebsclskg .gt_footnotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -2831,7 +2980,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_footnote {
+#umebsclskg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2840,7 +2989,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#cmdmwztyjv .gt_sourcenotes {
+#umebsclskg .gt_sourcenotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -2854,7 +3003,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#cmdmwztyjv .gt_sourcenote {
+#umebsclskg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2862,64 +3011,73 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#cmdmwztyjv .gt_left {
+#umebsclskg .gt_left {
   text-align: left;
 }
 
-#cmdmwztyjv .gt_center {
+#umebsclskg .gt_center {
   text-align: center;
 }
 
-#cmdmwztyjv .gt_right {
+#umebsclskg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cmdmwztyjv .gt_font_normal {
+#umebsclskg .gt_font_normal {
   font-weight: normal;
 }
 
-#cmdmwztyjv .gt_font_bold {
+#umebsclskg .gt_font_bold {
   font-weight: bold;
 }
 
-#cmdmwztyjv .gt_font_italic {
+#umebsclskg .gt_font_italic {
   font-style: italic;
 }
 
-#cmdmwztyjv .gt_super {
+#umebsclskg .gt_super {
   font-size: 65%;
 }
 
-#cmdmwztyjv .gt_footnote_marks {
+#umebsclskg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cmdmwztyjv .gt_asterisk {
+#umebsclskg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cmdmwztyjv .gt_indent_1 {
+#umebsclskg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cmdmwztyjv .gt_indent_2 {
+#umebsclskg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cmdmwztyjv .gt_indent_3 {
+#umebsclskg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cmdmwztyjv .gt_indent_4 {
+#umebsclskg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cmdmwztyjv .gt_indent_5 {
+#umebsclskg .gt_indent_5 {
   text-indent: 25px;
+}
+
+#umebsclskg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#umebsclskg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -2938,29 +3096,29 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   </thead>
   <tbody class="gt_table_body">
     <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Biscoe">Biscoe</th>
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="On Biscoe island">On Biscoe island</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub" style="text-align: right;">Adelie</th>
-<td headers="Biscoe stub_1_1 Female" class="gt_row gt_right">3369.318</td>
-<td headers="Biscoe stub_1_1 Male" class="gt_row gt_right">4050.000</td></tr>
+<td headers="On Biscoe island stub_1_1 Female" class="gt_row gt_right">3369.318</td>
+<td headers="On Biscoe island stub_1_1 Male" class="gt_row gt_right">4050.000</td></tr>
     <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub" style="text-align: right;">Gentoo</th>
-<td headers="Biscoe stub_1_2 Female" class="gt_row gt_right">4679.741</td>
-<td headers="Biscoe stub_1_2 Male" class="gt_row gt_right">5484.836</td></tr>
+<td headers="On Biscoe island stub_1_2 Female" class="gt_row gt_right">4679.741</td>
+<td headers="On Biscoe island stub_1_2 Male" class="gt_row gt_right">5484.836</td></tr>
     <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Dream">Dream</th>
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="On Dream island">On Dream island</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub" style="text-align: right;">Adelie</th>
-<td headers="Dream stub_1_3 Female" class="gt_row gt_right">3344.444</td>
-<td headers="Dream stub_1_3 Male" class="gt_row gt_right">4045.536</td></tr>
+<td headers="On Dream island stub_1_3 Female" class="gt_row gt_right">3344.444</td>
+<td headers="On Dream island stub_1_3 Male" class="gt_row gt_right">4045.536</td></tr>
     <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub" style="text-align: right;">Chinstrap</th>
-<td headers="Dream stub_1_4 Female" class="gt_row gt_right">3527.206</td>
-<td headers="Dream stub_1_4 Male" class="gt_row gt_right">3938.971</td></tr>
+<td headers="On Dream island stub_1_4 Female" class="gt_row gt_right">3527.206</td>
+<td headers="On Dream island stub_1_4 Male" class="gt_row gt_right">3938.971</td></tr>
     <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Torgersen">Torgersen</th>
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="On Torgersen island">On Torgersen island</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub" style="text-align: right;">Adelie</th>
-<td headers="Torgersen stub_1_5 Female" class="gt_row gt_right">3395.833</td>
-<td headers="Torgersen stub_1_5 Male" class="gt_row gt_right">4034.783</td></tr>
+<td headers="On Torgersen island stub_1_5 Female" class="gt_row gt_right">3395.833</td>
+<td headers="On Torgersen island stub_1_5 Male" class="gt_row gt_right">4034.783</td></tr>
   </tbody>
   
   
@@ -2973,28 +3131,42 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 </section>
 <section id="script-structure-and-basic-eda" class="slide level2">
 <h2>Script Structure and Basic EDA</h2>
-<p>(Live)</p>
-<ul>
-<li><a href="">EDA Script</a></li>
-</ul>
+<p><a href="">eda.R</a></p>
+<ol type="1">
+<li>Load packages</li>
+<li>Import raw data</li>
+<li>Clean/reshape/‘tidy’ data</li>
+<li>Analyze</li>
+<li>Write cleaned data</li>
+</ol>
 </section>
 <section id="where-to-get-help" class="slide level2">
 <h2>Where to get Help</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
 <ul>
 <li><p>Stackoverflow</p></li>
 <li><p>Posit Community</p></li>
 <li><p>Twitter/X/Mastadon/BlueSky</p></li>
 <li><p>CCSF Teams Channel</p></li>
 </ul>
-
-<img data-src="img/debugging.png" class="r-stretch"></section>
-<section id="how-to-get-help-reprex" class="slide level2">
-<h2>How to get Help (reprex)</h2>
+</div><div class="column" style="width:70%;">
+<p><img data-src="img/debugging.png"></p>
+</div>
+</div>
+</section>
+<section id="how-to-get-help" class="slide level2">
+<h2>How to get Help</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
 <ul>
 <li><a href="https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html">Reprex Do’s and Don’ts</a></li>
 </ul>
-
-<img data-src="img/reprex.png" class="r-stretch"></section>
+</div><div class="column" style="width:70%;">
+<p><img data-src="img/reprex.png"></p>
+</div>
+</div>
+</section>
 <section id="what-should-i-learn-next" class="slide level2">
 <h2>What should I learn next?</h2>
 <ul>
@@ -3023,14 +3195,17 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 <li><p>Interactive web applications: <a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html">Welcome to Shiny</a></p></li>
 <li><p>Package development: <a href="https://r-pkgs.org/">R packages</a></p></li>
 <li><p>Automating data pipelines: <a href="https://books.ropensci.org/targets/">The targets user manual</a></p></li>
+<li><p>Make any chart: <a href="https://r-graph-gallery.com/">The R Graph Gallery</a></p></li>
 </ul>
 </section>
 <section id="lab" class="slide level2">
 <h2>Lab</h2>
+<p><a href="https://github.com/SFOEWD/data-academy-intro-to-r?tab=readme-ov-file#lab">Lab instructions in the README here.</a></p>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-<p>fin</p>
+<section id="fin" class="slide level2">
+<h2>fin</h2>
+<p>Give us your feedback! (Please respond to the survey sent out after class)</p>
+<p><a href="img/r-flowers.png"></a></p>
 <div class="footer footer-default">
 
 </div>
