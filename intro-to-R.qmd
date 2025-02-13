@@ -95,8 +95,19 @@ Exploratory Data Analysis
 
 :::
 
-## Gallery
+## R at CCSF
 
+* The Rent Board uses R to clean and join parcel assessor, DBI, housing inventory and rent board fee data.
+
+* DataSF uses R to manage and publish the [San Francisco Population and Demographic Census Data.](https://data.sfgov.org/Economy-and-Community/San-Francisco-Population-and-Demographic-Census-Da/4qbq-hvtt/about_data)
+
+* DPH uses R to clean and analyze survey data. 
+
+* OEWD uses R to make maps, read data from Salesforce, Airtable, and other third-party systems and APIs, and build robust data pipelines.  
+
+* *You* will use R to...
+
+## Gallery
 
 
 * "All Aboard! Exploring the Amtrak Passenger Rail System" [(table)](https://joshfangmeier.quarto.pub/table-contest-2022/#sec-table) [(code)](https://github.com/jfangmeier/table-contest-2022/blob/main/R/amtrak-table-standalone.qmd)
@@ -1252,13 +1263,14 @@ penguins %>%
 
 ::: {.column width="30%"}
 
+* CCSF R Users Teams Channel
+
 * Stackoverflow
 
 * Posit Community
 
 * Twitter/X/Mastadon/BlueSky
 
-* CCSF Teams Channel
 
 :::
 
