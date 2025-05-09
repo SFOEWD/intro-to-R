@@ -833,11 +833,61 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 </div></div>
 </section>
+<section id="subsetting-data-frames" class="slide level2">
+<h2>Subsetting data frames</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p>Types</p>
+<ul>
+<li>vector</li>
+<li>list</li>
+<li>matrix</li>
+<li><span style="color:firebrick;">data frame</span></li>
+</ul>
+</div><div class="column" style="width:75%;">
+<p>Use <code>$</code> to access columns (vectors) within a data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>df<span class="sc">$</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="fu">sum</span>(df<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>df<span class="sc">$</span>z[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a>df<span class="sc">$</span>z[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "c"</code></pre>
+</div>
+</div>
+<p>Subscripts/indices for data frames are pairs specifying the row and column numbers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a>df[<span class="dv">1</span>,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      x
+  &lt;dbl&gt;
+1     1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a>df[<span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+      x z     f    
+  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
+1     2 b     FALSE</code></pre>
+</div>
+</div>
+</div></div>
+</section>
 <section id="built-in-datasets" class="slide level2">
 <h2>Built-in Datasets</h2>
 <p><strong><code>iris</code></strong> - measurements of iris sepal and petal lengths/widths.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">str</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="fu">str</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   150 obs. of  5 variables:
  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
@@ -849,7 +899,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 <p><strong><code>mtcars</code></strong> - aspects of automobile design and performance for 32 vehicles.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="fu">str</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="fu">str</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   32 obs. of  11 variables:
  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
@@ -867,78 +917,28 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 <p>See also: <code>cars</code>, <code>airquality</code>, <code>USArrests</code>, <code>InsectSprays</code>, etc.</p>
 </section>
-<section id="subsetting-data-frames" class="slide level2">
-<h2>Subsetting data frames</h2>
-<div class="columns">
-<div class="column" style="width:25%;">
-<p>Types</p>
-<ul>
-<li>vector</li>
-<li>list</li>
-<li>matrix</li>
-<li><span style="color:firebrick;">data frame</span></li>
-</ul>
-</div><div class="column" style="width:75%;">
-<p>Use <code>$</code> to access columns (vectors) within a data frame.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>df<span class="sc">$</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="fu">sum</span>(df<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a>df<span class="sc">$</span>z[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "a"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a>df<span class="sc">$</span>z[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "a" "c"</code></pre>
-</div>
-</div>
-<p>Subscripts/indices for data frames are pairs specifying the row and column numbers.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a>df[<span class="dv">1</span>,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-      x
-  &lt;dbl&gt;
-1     1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a>df[<span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
-      x z     f    
-  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
-1     2 b     FALSE</code></pre>
-</div>
-</div>
-</div></div>
-</section>
 <section id="operators" class="slide level2">
 <h2>Operators</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="uygeoimtlv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gvhuxhvkyo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#uygeoimtlv table {
+#gvhuxhvkyo table {
   font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uygeoimtlv thead, #uygeoimtlv tbody, #uygeoimtlv tfoot, #uygeoimtlv tr, #uygeoimtlv td, #uygeoimtlv th {
+#gvhuxhvkyo thead, #gvhuxhvkyo tbody, #gvhuxhvkyo tfoot, #gvhuxhvkyo tr, #gvhuxhvkyo td, #gvhuxhvkyo th {
   border-style: none;
 }
 
-#uygeoimtlv p {
+#gvhuxhvkyo p {
   margin: 0;
   padding: 0;
 }
 
-#uygeoimtlv .gt_table {
+#gvhuxhvkyo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -964,12 +964,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_caption {
+#gvhuxhvkyo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uygeoimtlv .gt_title {
+#gvhuxhvkyo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -981,7 +981,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-width: 0;
 }
 
-#uygeoimtlv .gt_subtitle {
+#gvhuxhvkyo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -993,7 +993,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-top-width: 0;
 }
 
-#uygeoimtlv .gt_heading {
+#gvhuxhvkyo .gt_heading {
   background-color: #D7E3F5;
   text-align: left;
   border-bottom-color: #D7E3F5;
@@ -1005,13 +1005,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_bottom_border {
+#gvhuxhvkyo .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_col_headings {
+#gvhuxhvkyo .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1026,7 +1026,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_col_heading {
+#gvhuxhvkyo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1046,7 +1046,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   overflow-x: hidden;
 }
 
-#uygeoimtlv .gt_column_spanner_outer {
+#gvhuxhvkyo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1058,15 +1058,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 4px;
 }
 
-#uygeoimtlv .gt_column_spanner_outer:first-child {
+#gvhuxhvkyo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uygeoimtlv .gt_column_spanner_outer:last-child {
+#gvhuxhvkyo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uygeoimtlv .gt_column_spanner {
+#gvhuxhvkyo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -1078,11 +1078,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   width: 100%;
 }
 
-#uygeoimtlv .gt_spanner_row {
+#gvhuxhvkyo .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uygeoimtlv .gt_group_heading {
+#gvhuxhvkyo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1108,7 +1108,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   text-align: left;
 }
 
-#uygeoimtlv .gt_empty_group_heading {
+#gvhuxhvkyo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #D7E3F5;
@@ -1123,15 +1123,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   vertical-align: middle;
 }
 
-#uygeoimtlv .gt_from_md > :first-child {
+#gvhuxhvkyo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uygeoimtlv .gt_from_md > :last-child {
+#gvhuxhvkyo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uygeoimtlv .gt_row {
+#gvhuxhvkyo .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -1150,7 +1150,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   overflow-x: hidden;
 }
 
-#uygeoimtlv .gt_stub {
+#gvhuxhvkyo .gt_stub {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 80%;
@@ -1163,7 +1163,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#uygeoimtlv .gt_stub_row_group {
+#gvhuxhvkyo .gt_stub_row_group {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -1177,15 +1177,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   vertical-align: top;
 }
 
-#uygeoimtlv .gt_row_group_first td {
+#gvhuxhvkyo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uygeoimtlv .gt_row_group_first th {
+#gvhuxhvkyo .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uygeoimtlv .gt_summary_row {
+#gvhuxhvkyo .gt_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -1195,16 +1195,16 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#uygeoimtlv .gt_first_summary_row {
+#gvhuxhvkyo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_first_summary_row.thick {
+#gvhuxhvkyo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uygeoimtlv .gt_last_summary_row {
+#gvhuxhvkyo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1214,7 +1214,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_grand_summary_row {
+#gvhuxhvkyo .gt_grand_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -1224,7 +1224,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#uygeoimtlv .gt_first_grand_summary_row {
+#gvhuxhvkyo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1234,7 +1234,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_last_grand_summary_row_top {
+#gvhuxhvkyo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1244,11 +1244,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_striped {
+#gvhuxhvkyo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uygeoimtlv .gt_table_body {
+#gvhuxhvkyo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1257,7 +1257,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_footnotes {
+#gvhuxhvkyo .gt_footnotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -1271,7 +1271,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_footnote {
+#gvhuxhvkyo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1280,7 +1280,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#uygeoimtlv .gt_sourcenotes {
+#gvhuxhvkyo .gt_sourcenotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -1294,7 +1294,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uygeoimtlv .gt_sourcenote {
+#gvhuxhvkyo .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1302,72 +1302,72 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#uygeoimtlv .gt_left {
+#gvhuxhvkyo .gt_left {
   text-align: left;
 }
 
-#uygeoimtlv .gt_center {
+#gvhuxhvkyo .gt_center {
   text-align: center;
 }
 
-#uygeoimtlv .gt_right {
+#gvhuxhvkyo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uygeoimtlv .gt_font_normal {
+#gvhuxhvkyo .gt_font_normal {
   font-weight: normal;
 }
 
-#uygeoimtlv .gt_font_bold {
+#gvhuxhvkyo .gt_font_bold {
   font-weight: bold;
 }
 
-#uygeoimtlv .gt_font_italic {
+#gvhuxhvkyo .gt_font_italic {
   font-style: italic;
 }
 
-#uygeoimtlv .gt_super {
+#gvhuxhvkyo .gt_super {
   font-size: 65%;
 }
 
-#uygeoimtlv .gt_footnote_marks {
+#gvhuxhvkyo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uygeoimtlv .gt_asterisk {
+#gvhuxhvkyo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uygeoimtlv .gt_indent_1 {
+#gvhuxhvkyo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uygeoimtlv .gt_indent_2 {
+#gvhuxhvkyo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uygeoimtlv .gt_indent_3 {
+#gvhuxhvkyo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uygeoimtlv .gt_indent_4 {
+#gvhuxhvkyo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uygeoimtlv .gt_indent_5 {
+#gvhuxhvkyo .gt_indent_5 {
   text-indent: 25px;
 }
 
-#uygeoimtlv .katex-display {
+#gvhuxhvkyo .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#uygeoimtlv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gvhuxhvkyo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -2277,16 +2277,16 @@ $ data_loaded_at        &lt;dttm&gt; 2025-04-28 09:45:20, 2025-04-28 09:45:20, 2
 <h2>left_join()</h2>
 <p>If a row in ‘x’ or the left-hand side matches a row in ‘y’ or the right-hand side, the columns from the y table are joined to the x table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href=""></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb220-2"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>))</span>
-<span id="cb220-3"><a href=""></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">"x"</span>) <span class="co"># or df1 %&gt;% left_join(df2, join_by(x))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href=""></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">c1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">c2 =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>))</span>
+<span id="cb220-2"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">c1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>), <span class="at">c3 =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>, <span class="st">"y4"</span>))</span>
+<span id="cb220-3"><a href=""></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">"c1"</span>) <span class="co"># or df1 %&gt;% left_join(df2, join_by(c1))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-      x y     
-  &lt;dbl&gt; &lt;chr&gt; 
-1     1 first 
-2     2 second
-3     3 &lt;NA&gt;  </code></pre>
+<pre><code># A tibble: 3 × 3
+     c1 c2    c3   
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+1     1 x1    y1   
+2     2 x2    y2   
+3     3 x3    &lt;NA&gt; </code></pre>
 </div>
 </div>
 
@@ -2295,17 +2295,17 @@ $ data_loaded_at        &lt;dttm&gt; 2025-04-28 09:45:20, 2025-04-28 09:45:20, 2
 <h2>left_join() (multiple matches)</h2>
 <p>If a row in ‘x’ or the left-hand side has <strong>multiple</strong> matches in ‘y’ or the right-hand side, <strong>all</strong> the matching rows in y will be joined to x.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb222-1"><a href=""></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb222-2"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">code =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"third"</span>))</span>
-<span id="cb222-3"><a href=""></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="fu">join_by</span>(id <span class="sc">==</span> code))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb222-1"><a href=""></a>df1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">c2 =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>))</span>
+<span id="cb222-2"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id2 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">c3 =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>, <span class="st">"y4"</span>, <span class="st">"y5"</span>))</span>
+<span id="cb222-3"><a href=""></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="fu">join_by</span>(id1 <span class="sc">==</span> id2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-     id y     
-  &lt;dbl&gt; &lt;chr&gt; 
-1     1 first 
-2     1 second
-3     2 third 
-4     3 &lt;NA&gt;  </code></pre>
+<pre><code># A tibble: 4 × 3
+    id1 c2    c3   
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+1     1 x1    y1   
+2     2 x2    y2   
+3     2 x2    y5   
+4     3 x3    &lt;NA&gt; </code></pre>
 </div>
 </div>
 
@@ -2529,23 +2529,23 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="qlziluyscy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qlziluyscy table {
+<div id="agpqyjwmaq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#agpqyjwmaq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qlziluyscy thead, #qlziluyscy tbody, #qlziluyscy tfoot, #qlziluyscy tr, #qlziluyscy td, #qlziluyscy th {
+#agpqyjwmaq thead, #agpqyjwmaq tbody, #agpqyjwmaq tfoot, #agpqyjwmaq tr, #agpqyjwmaq td, #agpqyjwmaq th {
   border-style: none;
 }
 
-#qlziluyscy p {
+#agpqyjwmaq p {
   margin: 0;
   padding: 0;
 }
 
-#qlziluyscy .gt_table {
+#agpqyjwmaq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2571,12 +2571,12 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-left-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_caption {
+#agpqyjwmaq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qlziluyscy .gt_title {
+#agpqyjwmaq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2588,7 +2588,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-width: 0;
 }
 
-#qlziluyscy .gt_subtitle {
+#agpqyjwmaq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2600,7 +2600,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-top-width: 0;
 }
 
-#qlziluyscy .gt_heading {
+#agpqyjwmaq .gt_heading {
   background-color: #D7E3F5;
   text-align: center;
   border-bottom-color: #D7E3F5;
@@ -2612,13 +2612,13 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_bottom_border {
+#agpqyjwmaq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_col_headings {
+#agpqyjwmaq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2633,7 +2633,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_col_heading {
+#agpqyjwmaq .gt_col_heading {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2653,7 +2653,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   overflow-x: hidden;
 }
 
-#qlziluyscy .gt_column_spanner_outer {
+#agpqyjwmaq .gt_column_spanner_outer {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2665,15 +2665,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 4px;
 }
 
-#qlziluyscy .gt_column_spanner_outer:first-child {
+#agpqyjwmaq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qlziluyscy .gt_column_spanner_outer:last-child {
+#agpqyjwmaq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qlziluyscy .gt_column_spanner {
+#agpqyjwmaq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2685,11 +2685,11 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   width: 100%;
 }
 
-#qlziluyscy .gt_spanner_row {
+#agpqyjwmaq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qlziluyscy .gt_group_heading {
+#agpqyjwmaq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2715,7 +2715,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   text-align: left;
 }
 
-#qlziluyscy .gt_empty_group_heading {
+#agpqyjwmaq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #D7E3F5;
@@ -2730,15 +2730,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   vertical-align: middle;
 }
 
-#qlziluyscy .gt_from_md > :first-child {
+#agpqyjwmaq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qlziluyscy .gt_from_md > :last-child {
+#agpqyjwmaq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qlziluyscy .gt_row {
+#agpqyjwmaq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2757,7 +2757,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   overflow-x: hidden;
 }
 
-#qlziluyscy .gt_stub {
+#agpqyjwmaq .gt_stub {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2770,7 +2770,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#qlziluyscy .gt_stub_row_group {
+#agpqyjwmaq .gt_stub_row_group {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2784,15 +2784,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   vertical-align: top;
 }
 
-#qlziluyscy .gt_row_group_first td {
+#agpqyjwmaq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qlziluyscy .gt_row_group_first th {
+#agpqyjwmaq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qlziluyscy .gt_summary_row {
+#agpqyjwmaq .gt_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -2802,16 +2802,16 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#qlziluyscy .gt_first_summary_row {
+#agpqyjwmaq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_first_summary_row.thick {
+#agpqyjwmaq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qlziluyscy .gt_last_summary_row {
+#agpqyjwmaq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2821,7 +2821,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_grand_summary_row {
+#agpqyjwmaq .gt_grand_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -2831,7 +2831,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#qlziluyscy .gt_first_grand_summary_row {
+#agpqyjwmaq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2841,7 +2841,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-top-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_last_grand_summary_row_top {
+#agpqyjwmaq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2851,11 +2851,11 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_striped {
+#agpqyjwmaq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qlziluyscy .gt_table_body {
+#agpqyjwmaq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2864,7 +2864,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_footnotes {
+#agpqyjwmaq .gt_footnotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -2878,7 +2878,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_footnote {
+#agpqyjwmaq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2887,7 +2887,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#qlziluyscy .gt_sourcenotes {
+#agpqyjwmaq .gt_sourcenotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -2901,7 +2901,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#qlziluyscy .gt_sourcenote {
+#agpqyjwmaq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2909,72 +2909,72 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#qlziluyscy .gt_left {
+#agpqyjwmaq .gt_left {
   text-align: left;
 }
 
-#qlziluyscy .gt_center {
+#agpqyjwmaq .gt_center {
   text-align: center;
 }
 
-#qlziluyscy .gt_right {
+#agpqyjwmaq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qlziluyscy .gt_font_normal {
+#agpqyjwmaq .gt_font_normal {
   font-weight: normal;
 }
 
-#qlziluyscy .gt_font_bold {
+#agpqyjwmaq .gt_font_bold {
   font-weight: bold;
 }
 
-#qlziluyscy .gt_font_italic {
+#agpqyjwmaq .gt_font_italic {
   font-style: italic;
 }
 
-#qlziluyscy .gt_super {
+#agpqyjwmaq .gt_super {
   font-size: 65%;
 }
 
-#qlziluyscy .gt_footnote_marks {
+#agpqyjwmaq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qlziluyscy .gt_asterisk {
+#agpqyjwmaq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qlziluyscy .gt_indent_1 {
+#agpqyjwmaq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qlziluyscy .gt_indent_2 {
+#agpqyjwmaq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qlziluyscy .gt_indent_3 {
+#agpqyjwmaq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qlziluyscy .gt_indent_4 {
+#agpqyjwmaq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qlziluyscy .gt_indent_5 {
+#agpqyjwmaq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qlziluyscy .katex-display {
+#agpqyjwmaq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qlziluyscy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#agpqyjwmaq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3049,6 +3049,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 </section>
 <section id="project-structure" class="slide level2">
 <h2>Project Structure</h2>
+<p>(Live)</p>
 <p>Be organized and be consistent!</p>
 <pre><code>├── data-academy-intro-to-r.Rproj
 └── README.Rmd
