@@ -618,23 +618,6 @@ df
 
 :::
 
-## Built-in Datasets
-
-**`iris`** - measurements of iris sepal and petal lengths/widths.
-
-```{r}
-str(iris)
-```
-
-
-**`mtcars`** - aspects of automobile design and performance for 32 vehicles.
-
-```{r}
-str(mtcars)
-```
-
-See also: `cars`, `airquality`, `USArrests`, `InsectSprays`, etc.
-
 ## Subsetting data frames
 
 :::: {.columns}
@@ -671,6 +654,23 @@ df[2, 1:3]
 :::
 
 :::
+
+## Built-in Datasets
+
+**`iris`** - measurements of iris sepal and petal lengths/widths.
+
+```{r}
+str(iris)
+```
+
+
+**`mtcars`** - aspects of automobile design and performance for 32 vehicles.
+
+```{r}
+str(mtcars)
+```
+
+See also: `cars`, `airquality`, `USArrests`, `InsectSprays`, etc.
 
 ## Operators
 
@@ -1091,9 +1091,9 @@ air_traffic %>%
 If a row in 'x' or the left-hand side matches a row in 'y' or the right-hand side, the columns from the y table are joined to the x table.
 
 ```{r}
-df1 <- tibble(x = 1:3)
-df2 <- tibble(x = c(1, 2), y = c("first", "second"))
-left_join(df1, df2, by = "x") # or df1 %>% left_join(df2, join_by(x))
+df1 <- tibble(c1 = 1:3, c2 = c("x1", "x2", "x3"))
+df2 <- tibble(c1 = c(1, 2, 4), c3 = c("y1", "y2", "y4"))
+left_join(df1, df2, by = "c1") # or df1 %>% left_join(df2, join_by(c1))
 ```
 
 ![](img/left-join.gif)
@@ -1103,9 +1103,9 @@ left_join(df1, df2, by = "x") # or df1 %>% left_join(df2, join_by(x))
 If a row in 'x' or the left-hand side has **multiple** matches in 'y' or the right-hand side, **all** the matching rows in y will be joined to x. 
 
 ```{r}
-df1 <- tibble(id = 1:3)
-df2 <- tibble(code = c(1, 1, 2), y = c("first", "second", "third"))
-df1 %>% left_join(df2, join_by(id == code))
+df1 <- tibble(id1 = 1:3, c2 = c("x1", "x2", "x3"))
+df2 <- tibble(id2 = c(1, 2, 4, 2), c3 = c("y1", "y2", "y4", "y5"))
+df1 %>% left_join(df2, join_by(id1 == id2))
 ```
 
 ![](img/left-join-extra.gif)
@@ -1323,6 +1323,8 @@ penguins %>%
 5. Write cleaned data
 
 ## Project Structure
+
+(Live)
 
 Be organized and be consistent!
 
