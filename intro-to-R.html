@@ -227,8 +227,9 @@ Data Academy
 <li class="fragment">Subsetting, Sorting, and Summarizing</li>
 <li class="fragment">Manipulating</li>
 <li class="fragment">Piping</li>
-<li class="fragment">Joining</li>
-<li class="fragment">Pivoting</li>
+<li class="fragment">Plotting with ggplot2</li>
+<li class="fragment"><del>Joining</del></li>
+<li class="fragment"><del>Pivoting</del></li>
 <li class="fragment">Plotting</li>
 <li class="fragment">Script Structure</li>
 </ul>
@@ -240,10 +241,10 @@ Data Academy
 <div class="column" style="width:40%;">
 <ul>
 <li class="fragment">Navigate RStudio</li>
-<li class="fragment">Pledge to use R Projects</li>
+<li class="fragment">Pledge to always use R Projects</li>
 <li class="fragment">Understand R’s types and structures</li>
 <li class="fragment">Manipulate data frames</li>
-<li class="fragment">Conduct basic EDA</li>
+<li class="fragment">Conduct basic EDA (with plots!)</li>
 <li class="fragment">Know where and how to get help</li>
 </ul>
 </div><div class="column" height="75%" style="width:60%;">
@@ -273,7 +274,8 @@ Data Academy
 <li><p>The Rent Board uses R to clean and join parcel assessor, DBI, housing inventory and rent board fee data.</p></li>
 <li><p>DataSF uses R to manage and publish the <a href="https://data.sfgov.org/Economy-and-Community/San-Francisco-Population-and-Demographic-Census-Da/4qbq-hvtt/about_data">San Francisco Population and Demographic Census Data.</a></p></li>
 <li><p>DPH uses R to clean, geocode, and analyze survey and patient data.</p></li>
-<li><p>OEWD uses R to make maps, read data from Salesforce, Airtable, and other third-party systems and APIs, and build robust data pipelines.</p></li>
+<li><p>DPW uses R make both static and interactive maps.</p></li>
+<li><p>OEWD uses R to read data from Salesforce, Airtable, and other third-party systems and APIs, and build robust data pipelines.</p></li>
 <li><p><em>You</em> will use R to…</p></li>
 </ul>
 </section>
@@ -921,24 +923,27 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <h2>Operators</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="gvhuxhvkyo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="shtnztndof" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#gvhuxhvkyo table {
-  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#shtnztndof table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gvhuxhvkyo thead, #gvhuxhvkyo tbody, #gvhuxhvkyo tfoot, #gvhuxhvkyo tr, #gvhuxhvkyo td, #gvhuxhvkyo th {
+#shtnztndof thead, #shtnztndof tbody, #shtnztndof tfoot, #shtnztndof tr, #shtnztndof td, #shtnztndof th {
   border-style: none;
 }
 
-#gvhuxhvkyo p {
+#shtnztndof p {
   margin: 0;
   padding: 0;
 }
 
-#gvhuxhvkyo .gt_table {
+#shtnztndof .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -946,7 +951,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #D7E3F5;
   width: auto;
@@ -964,12 +969,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_caption {
+#shtnztndof .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gvhuxhvkyo .gt_title {
+#shtnztndof .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -981,7 +986,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-width: 0;
 }
 
-#gvhuxhvkyo .gt_subtitle {
+#shtnztndof .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -993,7 +998,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-top-width: 0;
 }
 
-#gvhuxhvkyo .gt_heading {
+#shtnztndof .gt_heading {
   background-color: #D7E3F5;
   text-align: left;
   border-bottom-color: #D7E3F5;
@@ -1005,13 +1010,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_bottom_border {
+#shtnztndof .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_col_headings {
+#shtnztndof .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1026,12 +1031,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_col_heading {
+#shtnztndof .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -1046,27 +1051,27 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   overflow-x: hidden;
 }
 
-#gvhuxhvkyo .gt_column_spanner_outer {
+#shtnztndof .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-#gvhuxhvkyo .gt_column_spanner_outer:first-child {
+#shtnztndof .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gvhuxhvkyo .gt_column_spanner_outer:last-child {
+#shtnztndof .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gvhuxhvkyo .gt_column_spanner {
+#shtnztndof .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -1078,20 +1083,20 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   width: 100%;
 }
 
-#gvhuxhvkyo .gt_spanner_row {
+#shtnztndof .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gvhuxhvkyo .gt_group_heading {
+#shtnztndof .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #D7E3F5;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -1108,12 +1113,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   text-align: left;
 }
 
-#gvhuxhvkyo .gt_empty_group_heading {
+#shtnztndof .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #D7E3F5;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -1123,15 +1128,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   vertical-align: middle;
 }
 
-#gvhuxhvkyo .gt_from_md > :first-child {
+#shtnztndof .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gvhuxhvkyo .gt_from_md > :last-child {
+#shtnztndof .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gvhuxhvkyo .gt_row {
+#shtnztndof .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -1150,12 +1155,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   overflow-x: hidden;
 }
 
-#gvhuxhvkyo .gt_stub {
+#shtnztndof .gt_stub {
   color: #333333;
   background-color: #D7E3F5;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -1163,7 +1168,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#gvhuxhvkyo .gt_stub_row_group {
+#shtnztndof .gt_stub_row_group {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -1177,15 +1182,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   vertical-align: top;
 }
 
-#gvhuxhvkyo .gt_row_group_first td {
+#shtnztndof .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gvhuxhvkyo .gt_row_group_first th {
+#shtnztndof .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gvhuxhvkyo .gt_summary_row {
+#shtnztndof .gt_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -1195,16 +1200,16 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#gvhuxhvkyo .gt_first_summary_row {
+#shtnztndof .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_first_summary_row.thick {
+#shtnztndof .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gvhuxhvkyo .gt_last_summary_row {
+#shtnztndof .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1214,7 +1219,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_grand_summary_row {
+#shtnztndof .gt_grand_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -1224,7 +1229,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#gvhuxhvkyo .gt_first_grand_summary_row {
+#shtnztndof .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1234,7 +1239,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_last_grand_summary_row_top {
+#shtnztndof .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1244,11 +1249,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_striped {
+#shtnztndof .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gvhuxhvkyo .gt_table_body {
+#shtnztndof .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1257,7 +1262,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_footnotes {
+#shtnztndof .gt_footnotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -1271,7 +1276,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_footnote {
+#shtnztndof .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1280,7 +1285,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#gvhuxhvkyo .gt_sourcenotes {
+#shtnztndof .gt_sourcenotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -1294,7 +1299,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gvhuxhvkyo .gt_sourcenote {
+#shtnztndof .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1302,76 +1307,76 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   padding-right: 5px;
 }
 
-#gvhuxhvkyo .gt_left {
+#shtnztndof .gt_left {
   text-align: left;
 }
 
-#gvhuxhvkyo .gt_center {
+#shtnztndof .gt_center {
   text-align: center;
 }
 
-#gvhuxhvkyo .gt_right {
+#shtnztndof .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gvhuxhvkyo .gt_font_normal {
+#shtnztndof .gt_font_normal {
   font-weight: normal;
 }
 
-#gvhuxhvkyo .gt_font_bold {
+#shtnztndof .gt_font_bold {
   font-weight: bold;
 }
 
-#gvhuxhvkyo .gt_font_italic {
+#shtnztndof .gt_font_italic {
   font-style: italic;
 }
 
-#gvhuxhvkyo .gt_super {
+#shtnztndof .gt_super {
   font-size: 65%;
 }
 
-#gvhuxhvkyo .gt_footnote_marks {
+#shtnztndof .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gvhuxhvkyo .gt_asterisk {
+#shtnztndof .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gvhuxhvkyo .gt_indent_1 {
+#shtnztndof .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gvhuxhvkyo .gt_indent_2 {
+#shtnztndof .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gvhuxhvkyo .gt_indent_3 {
+#shtnztndof .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gvhuxhvkyo .gt_indent_4 {
+#shtnztndof .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gvhuxhvkyo .gt_indent_5 {
+#shtnztndof .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gvhuxhvkyo .katex-display {
+#shtnztndof .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gvhuxhvkyo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#shtnztndof div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
-tbody tr:last-child {
+#shtnztndof tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -1379,10 +1384,10 @@ tbody tr:last-child {
 <table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="Category" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Category</th>
-<th id="Operator" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Operator</th>
-<th id="Operation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Operation</th>
-<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Example</th>
+<th id="Category" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Category</th>
+<th id="Operator" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Operator</th>
+<th id="Operation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Operation</th>
+<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -1635,7 +1640,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <span id="cb132-3"><a href=""></a><span class="co"># crashes &lt;- read_csv("https://data.sfgov.org/resource/dau3-4s8f.csv")</span></span>
 <span id="cb132-4"><a href=""></a><span class="fu">glimpse</span>(crashes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 333
+<pre><code>Rows: 339
 Columns: 28
 $ unique_id             &lt;int&gt; 1, 2, 4, 16, 17, 20240304, 20241252, 20240391, 2…
 $ case_id_fkey          &lt;chr&gt; "140236301", "140755533", "140365546", "15056204…
@@ -1664,7 +1669,7 @@ $ analysis_neighborhood &lt;chr&gt; "Bayview Hunters Point", "Bayview Hunters Po
 $ supervisor_district   &lt;int&gt; 10, 10, 9, 5, 5, 5, 6, 7, 10, 9, 7, 1, 11, 6, 9,…
 $ police_district       &lt;chr&gt; "INGLESIDE", "BAYVIEW", "MISSION", "NORTHERN", "…
 $ data_as_of            &lt;dttm&gt; 2024-09-18, 2024-09-18, 2024-09-18, 2024-09-18,…
-$ data_loaded_at        &lt;dttm&gt; 2025-04-28 09:45:20, 2025-04-28 09:45:20, 2025-…</code></pre>
+$ data_loaded_at        &lt;dttm&gt; 2025-08-26 10:28:22, 2025-08-26 10:28:22, 2025-…</code></pre>
 </div>
 </div>
 </section>
@@ -2273,6 +2278,11 @@ $ data_loaded_at        &lt;dttm&gt; 2025-04-28 09:45:20, 2025-04-28 09:45:20, 2
 <span id="cb219-20"><a href=""></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="ggplot2" class="slide level2">
+<h2>ggplot2</h2>
+<p>(Live)</p>
+<p><a href="https://github.com/SFOEWD/data-academy-intro-to-r/blob/main/R/ggplot2.R">ggplot2.R</a></p>
+</section>
 <section id="left_join" class="slide level2">
 <h2>left_join()</h2>
 <p>If a row in ‘x’ or the left-hand side matches a row in ‘y’ or the right-hand side, the columns from the y table are joined to the x table.</p>
@@ -2476,7 +2486,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 <span id="cb241-14"><a href=""></a><span class="fu">write_xlsx</span>(adelie_males_on_torgersen_in_2007, <span class="st">"data/adelie_males_on_torgersen_in_2007.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="ggplot2" class="slide level2">
+<section id="ggplot2-1" class="slide level2">
 <h2>ggplot2</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb242"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb242-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
@@ -2529,23 +2539,23 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="agpqyjwmaq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#agpqyjwmaq table {
+<div id="yfjvxylllx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yfjvxylllx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#agpqyjwmaq thead, #agpqyjwmaq tbody, #agpqyjwmaq tfoot, #agpqyjwmaq tr, #agpqyjwmaq td, #agpqyjwmaq th {
+#yfjvxylllx thead, #yfjvxylllx tbody, #yfjvxylllx tfoot, #yfjvxylllx tr, #yfjvxylllx td, #yfjvxylllx th {
   border-style: none;
 }
 
-#agpqyjwmaq p {
+#yfjvxylllx p {
   margin: 0;
   padding: 0;
 }
 
-#agpqyjwmaq .gt_table {
+#yfjvxylllx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2571,12 +2581,12 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-left-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_caption {
+#yfjvxylllx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#agpqyjwmaq .gt_title {
+#yfjvxylllx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2588,7 +2598,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-width: 0;
 }
 
-#agpqyjwmaq .gt_subtitle {
+#yfjvxylllx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2600,7 +2610,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-top-width: 0;
 }
 
-#agpqyjwmaq .gt_heading {
+#yfjvxylllx .gt_heading {
   background-color: #D7E3F5;
   text-align: center;
   border-bottom-color: #D7E3F5;
@@ -2612,13 +2622,13 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_bottom_border {
+#yfjvxylllx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_col_headings {
+#yfjvxylllx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2633,7 +2643,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_col_heading {
+#yfjvxylllx .gt_col_heading {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2653,7 +2663,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   overflow-x: hidden;
 }
 
-#agpqyjwmaq .gt_column_spanner_outer {
+#yfjvxylllx .gt_column_spanner_outer {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2665,15 +2675,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 4px;
 }
 
-#agpqyjwmaq .gt_column_spanner_outer:first-child {
+#yfjvxylllx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#agpqyjwmaq .gt_column_spanner_outer:last-child {
+#yfjvxylllx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#agpqyjwmaq .gt_column_spanner {
+#yfjvxylllx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2685,11 +2695,11 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   width: 100%;
 }
 
-#agpqyjwmaq .gt_spanner_row {
+#yfjvxylllx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#agpqyjwmaq .gt_group_heading {
+#yfjvxylllx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2715,7 +2725,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   text-align: left;
 }
 
-#agpqyjwmaq .gt_empty_group_heading {
+#yfjvxylllx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #D7E3F5;
@@ -2730,15 +2740,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   vertical-align: middle;
 }
 
-#agpqyjwmaq .gt_from_md > :first-child {
+#yfjvxylllx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#agpqyjwmaq .gt_from_md > :last-child {
+#yfjvxylllx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#agpqyjwmaq .gt_row {
+#yfjvxylllx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2757,7 +2767,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   overflow-x: hidden;
 }
 
-#agpqyjwmaq .gt_stub {
+#yfjvxylllx .gt_stub {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2770,7 +2780,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#agpqyjwmaq .gt_stub_row_group {
+#yfjvxylllx .gt_stub_row_group {
   color: #333333;
   background-color: #D7E3F5;
   font-size: 100%;
@@ -2784,15 +2794,15 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   vertical-align: top;
 }
 
-#agpqyjwmaq .gt_row_group_first td {
+#yfjvxylllx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#agpqyjwmaq .gt_row_group_first th {
+#yfjvxylllx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#agpqyjwmaq .gt_summary_row {
+#yfjvxylllx .gt_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -2802,16 +2812,16 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#agpqyjwmaq .gt_first_summary_row {
+#yfjvxylllx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_first_summary_row.thick {
+#yfjvxylllx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#agpqyjwmaq .gt_last_summary_row {
+#yfjvxylllx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2821,7 +2831,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_grand_summary_row {
+#yfjvxylllx .gt_grand_summary_row {
   color: #333333;
   background-color: #D7E3F5;
   text-transform: inherit;
@@ -2831,7 +2841,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#agpqyjwmaq .gt_first_grand_summary_row {
+#yfjvxylllx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2841,7 +2851,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-top-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_last_grand_summary_row_top {
+#yfjvxylllx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2851,11 +2861,11 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_striped {
+#yfjvxylllx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#agpqyjwmaq .gt_table_body {
+#yfjvxylllx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2864,7 +2874,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-bottom-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_footnotes {
+#yfjvxylllx .gt_footnotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -2878,7 +2888,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_footnote {
+#yfjvxylllx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2887,7 +2897,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#agpqyjwmaq .gt_sourcenotes {
+#yfjvxylllx .gt_sourcenotes {
   color: #333333;
   background-color: #D7E3F5;
   border-bottom-style: none;
@@ -2901,7 +2911,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   border-right-color: #D3D3D3;
 }
 
-#agpqyjwmaq .gt_sourcenote {
+#yfjvxylllx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2909,72 +2919,72 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
   padding-right: 5px;
 }
 
-#agpqyjwmaq .gt_left {
+#yfjvxylllx .gt_left {
   text-align: left;
 }
 
-#agpqyjwmaq .gt_center {
+#yfjvxylllx .gt_center {
   text-align: center;
 }
 
-#agpqyjwmaq .gt_right {
+#yfjvxylllx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#agpqyjwmaq .gt_font_normal {
+#yfjvxylllx .gt_font_normal {
   font-weight: normal;
 }
 
-#agpqyjwmaq .gt_font_bold {
+#yfjvxylllx .gt_font_bold {
   font-weight: bold;
 }
 
-#agpqyjwmaq .gt_font_italic {
+#yfjvxylllx .gt_font_italic {
   font-style: italic;
 }
 
-#agpqyjwmaq .gt_super {
+#yfjvxylllx .gt_super {
   font-size: 65%;
 }
 
-#agpqyjwmaq .gt_footnote_marks {
+#yfjvxylllx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#agpqyjwmaq .gt_asterisk {
+#yfjvxylllx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#agpqyjwmaq .gt_indent_1 {
+#yfjvxylllx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#agpqyjwmaq .gt_indent_2 {
+#yfjvxylllx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#agpqyjwmaq .gt_indent_3 {
+#yfjvxylllx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#agpqyjwmaq .gt_indent_4 {
+#yfjvxylllx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#agpqyjwmaq .gt_indent_5 {
+#yfjvxylllx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#agpqyjwmaq .katex-display {
+#yfjvxylllx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#agpqyjwmaq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yfjvxylllx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2988,7 +2998,7 @@ $ `Don't know/refused` &lt;dbl&gt; 96, 76, 54, 1489, 116, 1529, 37, 339, 37, 162
 <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Adult foraging penguins near Palmer Station</th>
 </tr>
 <tr class="gt_col_headings header">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
 <th id="Female" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Female</th>
 <th id="Male" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Male</th>
 </tr>
