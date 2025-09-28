@@ -38,8 +38,9 @@ Exploratory Data Analysis
 * Subsetting, Sorting, and Summarizing
 * Manipulating
 * Piping
-* Joining
-* Pivoting
+* Plotting with ggplot2
+* ~~Joining~~
+* ~~Pivoting~~
 * Plotting
 * Script Structure
 
@@ -54,10 +55,10 @@ Exploratory Data Analysis
 ::: {.column width="40%" .incremental}
 
 * Navigate RStudio
-* Pledge to use R Projects
+* Pledge to always use R Projects
 * Understand R's types and structures
 * Manipulate data frames
-* Conduct basic EDA
+* Conduct basic EDA (with plots!)
 * Know where and how to get help
 
 :::
@@ -103,7 +104,9 @@ Exploratory Data Analysis
 
 * DPH uses R to clean, geocode, and analyze survey and patient data. 
 
-* OEWD uses R to make maps, read data from Salesforce, Airtable, and other third-party systems and APIs, and build robust data pipelines.  
+* DPW uses R make both static and interactive maps.
+
+* OEWD uses R to read data from Salesforce, Airtable, and other third-party systems and APIs, and build robust data pipelines.  
 
 * *You* will use R to...
 
@@ -1085,6 +1088,12 @@ air_traffic %>%
   count(operating_airline, sort = TRUE, name = "flights") %>% 
   head()
 ```
+
+## ggplot2
+
+(Live)
+
+[ggplot2.R](https://github.com/SFOEWD/data-academy-intro-to-r/blob/main/R/ggplot2.R)
 
 ## left_join()
 
